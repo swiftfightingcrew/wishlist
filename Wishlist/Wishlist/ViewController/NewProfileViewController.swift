@@ -35,7 +35,7 @@ class NewProfileViewController: UIViewController, UIImagePickerControllerDelegat
         y += CGRectGetHeight(infoLabel.frame) + yMargin
         
         // Picture Button
-        var pictureButton = UIButton(frame: CGRectMake(10, y, CGRectGetWidth(self.view.frame) / 2, 40))
+        var pictureButton = UIButton(frame: CGRectMake(10, y+20, CGRectGetWidth(self.view.frame) / 2, 40))
         pictureButton.setTitle("Bild auswählen", forState: UIControlState.Normal)
         pictureButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
         pictureButton.setTitleColor(UIColor.orangeColor(), forState: UIControlState.Highlighted)
@@ -72,7 +72,9 @@ class NewProfileViewController: UIViewController, UIImagePickerControllerDelegat
         self.dismissViewControllerAnimated(true, completion: nil)
         
         //pictureImageView.
+        println(info)
         
+        pictureImageView.image = info[UIImagePickerControllerOriginalImage] as UIImage
     }
 
 
