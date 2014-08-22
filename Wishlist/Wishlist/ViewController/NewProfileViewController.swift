@@ -26,11 +26,8 @@ class NewProfileViewController: UIViewController, UIImagePickerControllerDelegat
         var rightMargin: CGFloat = 20
         
         // Info Text
-        var infoLabel = UILabel (frame: CGRectMake(0, y, CGRectGetWidth(self.view.frame), 120))
-        infoLabel.text = "erstelle hier dein neues Profil"
-        infoLabel.font = UIFont(name: "Chalkduster", size: 14)
-        infoLabel.backgroundColor = UIColor.clearColor()
-        infoLabel.textAlignment = .Center
+        var infoTextFrame = CGRectMake(0, y, CGRectGetWidth(self.view.frame), 120)
+        var infoLabel = UiUtil.createLabel("erstelle hier dein neues Profil", myFrame: infoTextFrame)
         infoLabel.numberOfLines = 0 // mehrzeilig
         self.view.addSubview(infoLabel)
         
@@ -50,11 +47,8 @@ class NewProfileViewController: UIViewController, UIImagePickerControllerDelegat
         y += CGRectGetHeight(pictureImageView.frame) + yMargin
         
         // Name Label
-        var nameLabel = UILabel (frame: CGRectMake(0, y, CGRectGetWidth(self.view.frame) - rightMargin, 40))
-        nameLabel.text = "Wie heißt du?"
-        nameLabel.font = UIFont(name: "Chalkduster", size: 14)
-        nameLabel.backgroundColor = UIColor.clearColor()
-        nameLabel.textAlignment = .Center
+        var nameLabelFrame = CGRectMake(0, y, CGRectGetWidth(self.view.frame) - rightMargin, 40)
+        var nameLabel = UiUtil.createLabel("Wie heißt du?", myFrame: nameLabelFrame)
         self.view.addSubview(nameLabel)
         
         y += CGRectGetHeight(nameLabel.frame)
@@ -66,12 +60,16 @@ class NewProfileViewController: UIViewController, UIImagePickerControllerDelegat
         
         y += CGRectGetHeight(nameLabel.frame) + yMargin
 
+        // Sex Label
+        var sexLabelFrame = CGRectMake(0, y, CGRectGetWidth(self.view.frame) - rightMargin, 40)
+        var sexLabel = UiUtil.createLabel("Bist du ein Junge oder ein Mädchen?", myFrame: sexLabelFrame)
+        self.view.addSubview(sexLabel)
+      
+        y += CGRectGetHeight(sexLabel.frame) + yMargin
+
         // Age Label
-        var ageLabel = UILabel (frame: CGRectMake(0, y, CGRectGetWidth(self.view.frame) - rightMargin, 40))
-        ageLabel.text = "Wie alt bist du?"
-        ageLabel.font = UIFont(name: "Chalkduster", size: 14)
-        ageLabel.backgroundColor = UIColor.clearColor()
-        ageLabel.textAlignment = .Center
+        var ageLabelFrame = CGRectMake(0, y, CGRectGetWidth(self.view.frame) - rightMargin, 40)
+        var ageLabel = UiUtil.createLabel("Wie alt bist du?", myFrame: ageLabelFrame)
         self.view.addSubview(ageLabel)
 
     }

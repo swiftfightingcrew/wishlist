@@ -30,11 +30,8 @@ class ViewController: UIViewController {
         self.view.addSubview(welcomeLabel)
         
         // Info Text
-        infoLabel = UILabel (frame: CGRectMake(0, CGRectGetMaxY(welcomeLabel.frame), CGRectGetWidth(self.view.frame), 120))
-        infoLabel.text = "wähle deinen Charakter aus oder erstelle einen neuen!"
-        infoLabel.font = UIFont(name: "Chalkduster", size: 14)
-        infoLabel.backgroundColor = UIColor.clearColor()
-        infoLabel.textAlignment = .Center
+        var infoLabelFrame = CGRectMake(0, CGRectGetMaxY(welcomeLabel.frame), CGRectGetWidth(self.view.frame), 120)
+        infoLabel  = UiUtil.createLabel("wähle deinen Charakter aus oder erstelle einen neuen!", myFrame: infoLabelFrame)
         infoLabel.numberOfLines = 0
         self.view.addSubview(infoLabel)
         

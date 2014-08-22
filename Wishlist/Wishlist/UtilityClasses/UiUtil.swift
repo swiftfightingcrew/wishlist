@@ -27,4 +27,13 @@ class UiUtil{
         }
         return button
     }
+    
+    class func createLabel(text: String, myFrame: CGRect) -> UILabel {
+        var infoLabel = UILabel (frame: myFrame)
+        infoLabel.text = text
+        infoLabel.font = UIFont(name: "Chalkduster", size: 14)
+        infoLabel.backgroundColor = UIColor.clearColor()
+        infoLabel.textAlignment = .Center
+        return infoLabel
+    }
 }
