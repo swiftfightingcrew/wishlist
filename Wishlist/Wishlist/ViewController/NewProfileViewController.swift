@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class NewProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
+
     var pictureImageView: UIImageView!
     
     override func viewDidLoad() {
@@ -29,18 +29,14 @@ class NewProfileViewController: UIViewController, UIImagePickerControllerDelegat
         infoLabel.font = UIFont(name: "Chalkduster", size: 14)
         infoLabel.backgroundColor = UIColor.clearColor()
         infoLabel.textAlignment = .Center
-        infoLabel.numberOfLines = 0
+        infoLabel.numberOfLines = 0 // mehrzeilig
         self.view.addSubview(infoLabel)
         
         y += CGRectGetHeight(infoLabel.frame) + yMargin
         
         // Picture Button
-        var pictureButton = UIButton(frame: CGRectMake(10, y+20, CGRectGetWidth(self.view.frame) / 2, 40))
-        pictureButton.setTitle("Bild auswählen", forState: UIControlState.Normal)
-        pictureButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
-        pictureButton.setTitleColor(UIColor.orangeColor(), forState: UIControlState.Highlighted)
-        pictureButton.layer.borderWidth = 1.0
-        pictureButton.layer.cornerRadius = 15
+        var picButtonFrame: CGRect = CGRectMake(10, y+20, CGRectGetWidth(self.view.frame) / 2, 40)
+        var pictureButton = UiUtil.createButton("Bild auswählen", myFrame: picButtonFrame)
         self.view.addSubview(pictureButton)
         pictureButton.addTarget(self, action: "capture:", forControlEvents: UIControlEvents.TouchUpInside)
         
@@ -48,11 +44,8 @@ class NewProfileViewController: UIViewController, UIImagePickerControllerDelegat
         pictureImageView = UIImageView(frame: CGRectMake(CGRectGetMaxX(pictureButton.frame), y, CGRectGetWidth(self.view.frame) / 2 - 30, 80))
         pictureImageView.backgroundColor = UIColor.greenColor()
         self.view.addSubview(pictureImageView)
-        
-
-
-        
     }
+    
     
     // MARK: - Actions
     func capture(sender: UIButton) {
@@ -65,18 +58,11 @@ class NewProfileViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     
-    
     // MARK: - UIImagePicker Delegate
     func imagePickerController(picker: UIImagePickerController!, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]!) {
-        println("Have an image")
+        println("Picking an image from gallery")
         self.dismissViewControllerAnimated(true, completion: nil)
-        
-        //pictureImageView.
-        println(info)
-        
         pictureImageView.image = info[UIImagePickerControllerOriginalImage] as UIImage
     }
-
-
 
 }

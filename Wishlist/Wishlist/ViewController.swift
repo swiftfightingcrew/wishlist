@@ -39,23 +39,14 @@ class ViewController: UIViewController {
         self.view.addSubview(infoLabel)
         
         // Choose Button
-        chooseButton = UIButton (frame: CGRectMake(40, CGRectGetMaxY(infoLabel.frame) + 20, CGRectGetWidth(self.view.frame) - 80, 40))
-        chooseButton.setTitle("Peter", forState: UIControlState.Normal)
-        chooseButton.setTitleColor(UIColor.blueColor(), forState: UIControlState.Normal)
-        chooseButton.setTitleColor(UIColor.orangeColor(), forState: UIControlState.Highlighted)
-        chooseButton.layer.borderWidth = 1.0
-        chooseButton.backgroundColor = UIColor.whiteColor()
-        chooseButton.layer.cornerRadius = 15
+        var chooseButtonFrame: CGRect = CGRectMake(40, CGRectGetMaxY(infoLabel.frame) + 20, CGRectGetWidth(self.view.frame) - 80, 40)
+        chooseButton = UiUtil.createButton("Peter", myFrame: chooseButtonFrame)
         self.view.addSubview(chooseButton)
+        // TODO: addTarget
     
         // New Button
-        newButton = UIButton (frame: CGRectMake(40, CGRectGetMaxY(chooseButton.frame) + 20, CGRectGetWidth(self.view.frame) - 80, 40))
-        newButton.setTitle("Neuer Character", forState: UIControlState.Normal)
-        newButton.setTitleColor(UIColor.blueColor(), forState: UIControlState.Normal)
-        newButton.setTitleColor(UIColor.orangeColor(), forState: UIControlState.Highlighted)
-        newButton.layer.borderWidth = 1.0
-        newButton.backgroundColor = UIColor.whiteColor()
-        newButton.layer.cornerRadius = 15
+        var newButtonFrame: CGRect = CGRectMake(40, CGRectGetMaxY(chooseButton.frame) + 20, CGRectGetWidth(self.view.frame) - 80, 40)
+        newButton = UiUtil.createButton("Neuer Character", myFrame: newButtonFrame)
         self.view.addSubview(newButton)
         newButton.addTarget(self, action: "newButtonTapped:", forControlEvents: UIControlEvents.TouchUpInside)
 
@@ -72,6 +63,7 @@ class ViewController: UIViewController {
     }
 
     override func viewWillLayoutSubviews() {
+        // Landscape/Portrait Dimensionen neu zeichnen
         welcomeLabel.frame = CGRectMake(CGRectGetMinX(welcomeLabel.frame), CGRectGetMinY(welcomeLabel.frame), CGRectGetWidth(self.view.frame), CGRectGetHeight(welcomeLabel.frame))
     }
     

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0A220E2E19A7470E00943794 /* NewProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A220E2D19A7470E00943794 /* NewProfileViewController.swift */; };
+		0AC7A0F419A7C08800FC4CA2 /* UiUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC7A0F319A7C08800FC4CA2 /* UiUtil.swift */; };
 		C3C7FCC41990F67800590B4E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C7FCC31990F67800590B4E /* AppDelegate.swift */; };
 		C3C7FCC61990F67800590B4E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C7FCC51990F67800590B4E /* ViewController.swift */; };
 		C3C7FCC91990F67800590B4E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3C7FCC71990F67800590B4E /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		0A220E2D19A7470E00943794 /* NewProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewProfileViewController.swift; path = Wishlist/ViewController/NewProfileViewController.swift; sourceTree = "<group>"; };
+		0AC7A0F319A7C08800FC4CA2 /* UiUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UiUtil.swift; path = UtilityClasses/UiUtil.swift; sourceTree = "<group>"; };
 		C3C7FCBE1990F67800590B4E /* Wishlist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wishlist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3C7FCC21990F67800590B4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C3C7FCC31990F67800590B4E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,14 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		0AC7A0F219A7C04300FC4CA2 /* UtilityClasses */ = {
+			isa = PBXGroup;
+			children = (
+				0AC7A0F319A7C08800FC4CA2 /* UiUtil.swift */,
+			);
+			name = UtilityClasses;
+			sourceTree = "<group>";
+		};
 		C3C7FCB51990F67800590B4E = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +97,7 @@
 		C3C7FCC01990F67800590B4E /* Wishlist */ = {
 			isa = PBXGroup;
 			children = (
+				0AC7A0F219A7C04300FC4CA2 /* UtilityClasses */,
 				0A220E2F19A7473400943794 /* ViewController */,
 				C3C7FCC31990F67800590B4E /* AppDelegate.swift */,
 				C3C7FCC71990F67800590B4E /* Main.storyboard */,
@@ -223,6 +234,7 @@
 				C3C7FCC61990F67800590B4E /* ViewController.swift in Sources */,
 				C3C7FCC41990F67800590B4E /* AppDelegate.swift in Sources */,
 				0A220E2E19A7470E00943794 /* NewProfileViewController.swift in Sources */,
+				0AC7A0F419A7C08800FC4CA2 /* UiUtil.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
