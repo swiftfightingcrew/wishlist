@@ -41,7 +41,7 @@ class NewProfileViewController: UIViewController, UIImagePickerControllerDelegat
         pictureButton.addTarget(self, action: "capture:", forControlEvents: UIControlEvents.TouchUpInside)
         
         // Picture Image View
-        pictureImageView = UIImageView(frame: CGRectMake(CGRectGetMaxX(pictureButton.frame), y, CGRectGetWidth(self.view.frame) / 2 - 30, 80))
+        pictureImageView = UIImageView(frame: CGRectMake(CGRectGetMaxX(pictureButton.frame) + yMargin, y, CGRectGetWidth(self.view.frame) / 2 - 30, 80))
         pictureImageView.backgroundColor = UIColor.greenColor()
         self.view.addSubview(pictureImageView)
     }
