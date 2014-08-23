@@ -79,7 +79,6 @@ class NewProfileViewController: UIViewController, UIImagePickerControllerDelegat
         var ageLabelFrame = CGRectMake(0, y, CGRectGetWidth(self.view.frame) - rightMargin, 40)
         var ageLabel = UiUtil.createLabel("Wie alt bist du?", myFrame: ageLabelFrame)
         self.view.addSubview(ageLabel)
-
     }
     
     override func prefersStatusBarHidden() -> Bool {
@@ -92,18 +91,28 @@ class NewProfileViewController: UIViewController, UIImagePickerControllerDelegat
         // Bild auswählen
         var imgViewController = UIImagePickerController()
         imgViewController.delegate = self
-        imgViewController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        imgViewController.sourceType = UIImagePickerControllerSourceType.SavedPhotosAlbum
         
         self.presentViewController(imgViewController, animated: true, completion: nil)
     }
 
     func captureNew(sender: UIButton) {
-        // TODO neues Foto Aufnehmen
+        // neues Foto aufnehmen
+        if !UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
+            println("too sad - no camera available :(")
+            return
+        }
+        var imgViewController = UIImagePickerController()
+        imgViewController.delegate = self
+        imgViewController.sourceType = UIImagePickerControllerSourceType.Camera
+        imgViewController.takePicture()
+        println("taking a picture from the camera")
+        self.presentViewController(imgViewController, animated: true, completion: nil)
     }
     
     // MARK: - UIImagePicker Delegate
     func imagePickerController(picker: UIImagePickerController!, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]!) {
-        println("Picking an image from gallery")
+        println("Show the captured image")
         self.dismissViewControllerAnimated(true, completion: nil)
         pictureImageView.image = info[UIImagePickerControllerOriginalImage] as UIImage
     }
