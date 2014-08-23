@@ -26,7 +26,7 @@ class NewProfileViewController: UIViewController, UIImagePickerControllerDelegat
         var rightMargin: CGFloat = 20
         
         // Info Text
-        var infoTextFrame = CGRectMake(0, y, CGRectGetWidth(self.view.frame), 120)
+        var infoTextFrame = CGRectMake(0, y, CGRectGetWidth(self.view.frame), 60)
         var infoLabel = UiUtil.createLabel("erstelle hier dein neues Profil", myFrame: infoTextFrame)
         infoLabel.numberOfLines = 0 // mehrzeilig
         self.view.addSubview(infoLabel)
@@ -37,13 +37,22 @@ class NewProfileViewController: UIViewController, UIImagePickerControllerDelegat
         var picButtonFrame: CGRect = CGRectMake(yMargin, y+20, CGRectGetWidth(self.view.frame) / 2, 40)
         var pictureButton = UiUtil.createButton("wähle ein Bild aus", myFrame: picButtonFrame, action: Selector ("capture:"), sender: self)
         self.view.addSubview(pictureButton)
+
+
         
         // Picture Image View
         pictureImageView = UIImageView(frame: CGRectMake(CGRectGetMaxX(pictureButton.frame) + yMargin, y, CGRectGetWidth(self.view.frame) / 2 - rightMargin * 2, 120))
         pictureImageView.backgroundColor = UIColor.greenColor()
         self.view.addSubview(pictureImageView)
         
-        y += CGRectGetHeight(pictureImageView.frame) + yMargin
+        y += CGRectGetHeight(pictureButton.frame) + yMargin
+        
+        // Picture Button
+        var camButtonFrame: CGRect = CGRectMake(yMargin, y+20, CGRectGetWidth(self.view.frame) / 2, 40)
+        var cameraButton = UiUtil.createButton("neues Foto", myFrame: camButtonFrame, action: Selector ("captureNew:"), sender: self)
+        self.view.addSubview(cameraButton)
+        
+        y += CGRectGetHeight(cameraButton.frame) + yMargin * 2
         
         // Name Label
         var nameLabelFrame = CGRectMake(0, y, CGRectGetWidth(self.view.frame) - rightMargin, 40)
@@ -87,7 +96,10 @@ class NewProfileViewController: UIViewController, UIImagePickerControllerDelegat
         
         self.presentViewController(imgViewController, animated: true, completion: nil)
     }
-    
+
+    func captureNew(sender: UIButton) {
+        // TODO neues Foto Aufnehmen
+    }
     
     // MARK: - UIImagePicker Delegate
     func imagePickerController(picker: UIImagePickerController!, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]!) {
