@@ -37,16 +37,14 @@ class ViewController: UIViewController {
         
         // Choose Button
         var chooseButtonFrame: CGRect = CGRectMake(40, CGRectGetMaxY(infoLabel.frame) + 20, CGRectGetWidth(self.view.frame) - 80, 40)
+        // TODO: addTarget
         chooseButton = UiUtil.createButton("Peter", myFrame: chooseButtonFrame)
         self.view.addSubview(chooseButton)
-        // TODO: addTarget
     
         // New Button
         var newButtonFrame: CGRect = CGRectMake(40, CGRectGetMaxY(chooseButton.frame) + 20, CGRectGetWidth(self.view.frame) - 80, 40)
-        newButton = UiUtil.createButton("Neuer Character", myFrame: newButtonFrame)
+        newButton = UiUtil.createButton("Neuer Character", myFrame: newButtonFrame, action: Selector ("newButtonTapped:"), sender: self)
         self.view.addSubview(newButton)
-        newButton.addTarget(self, action: "newButtonTapped:", forControlEvents: UIControlEvents.TouchUpInside)
-
     }
 
     override func didReceiveMemoryWarning() {

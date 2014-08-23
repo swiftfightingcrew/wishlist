@@ -35,12 +35,11 @@ class NewProfileViewController: UIViewController, UIImagePickerControllerDelegat
         
         // Picture Button
         var picButtonFrame: CGRect = CGRectMake(yMargin, y+20, CGRectGetWidth(self.view.frame) / 2, 40)
-        var pictureButton = UiUtil.createButton("wähle ein Bild aus", myFrame: picButtonFrame)
+        var pictureButton = UiUtil.createButton("wähle ein Bild aus", myFrame: picButtonFrame, action: Selector ("capture:"), sender: self)
         self.view.addSubview(pictureButton)
-        pictureButton.addTarget(self, action: "capture:", forControlEvents: UIControlEvents.TouchUpInside)
         
         // Picture Image View
-        pictureImageView = UIImageView(frame: CGRectMake(CGRectGetMaxX(pictureButton.frame) + yMargin, y, CGRectGetWidth(self.view.frame) / 2 - rightMargin, 80))
+        pictureImageView = UIImageView(frame: CGRectMake(CGRectGetMaxX(pictureButton.frame) + yMargin, y, CGRectGetWidth(self.view.frame) / 2 - rightMargin * 2, 120))
         pictureImageView.backgroundColor = UIColor.greenColor()
         self.view.addSubview(pictureImageView)
         
@@ -74,6 +73,10 @@ class NewProfileViewController: UIViewController, UIImagePickerControllerDelegat
 
     }
     
+    override func prefersStatusBarHidden() -> Bool {
+        // Versteckt die Statusbar
+        return true
+    }
     
     // MARK: - Actions
     func capture(sender: UIButton) {
