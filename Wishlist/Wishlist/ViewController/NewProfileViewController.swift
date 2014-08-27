@@ -75,10 +75,14 @@ class NewProfileViewController: UIViewController, UIImagePickerControllerDelegat
       
         y += CGRectGetHeight(sexLabel.frame) + yMargin
 
+        // TODO: Auswahl Geschlecht (m/w)
+        
         // Age Label
         var ageLabelFrame = CGRectMake(0, y, CGRectGetWidth(self.view.frame) - rightMargin, 40)
         var ageLabel = UiUtil.createLabel("Wie alt bist du?", myFrame: ageLabelFrame)
         self.view.addSubview(ageLabel)
+        
+        // TODO: Spinner Auswahl Alter
     }
     
     override func prefersStatusBarHidden() -> Bool {
