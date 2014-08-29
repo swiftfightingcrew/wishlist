@@ -26,6 +26,7 @@ class UiUtil{
         if (action != nil) {
             button.addTarget(sender, action: action, forControlEvents: UIControlEvents.TouchUpInside)
         }
+        
         return button
     }
     
@@ -35,6 +36,7 @@ class UiUtil{
         infoLabel.font = UIFont(name: "Chalkduster", size: 14)
         infoLabel.backgroundColor = UIColor.clearColor()
         infoLabel.textAlignment = .Center
+        
         return infoLabel
     }
 }

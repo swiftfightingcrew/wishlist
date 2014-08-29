@@ -19,7 +19,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
         // Welcome-Text
         welcomeLabel = UILabel (frame: CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 40))
@@ -64,7 +63,6 @@ class ViewController: UIViewController {
     
     // MARK: - Actions
     func newButtonTapped(sender: UIButton!) {
-        println("Button Tapped")
         let newProfileViewController = NewProfileViewController()
         self.showViewController(newProfileViewController, sender: nil)
     }
