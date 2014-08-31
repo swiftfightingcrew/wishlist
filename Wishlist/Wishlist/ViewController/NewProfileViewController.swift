@@ -44,12 +44,11 @@ class NewProfileViewController: UIViewController, UIImagePickerControllerDelegat
         var picButtonFrame: CGRect = CGRectMake(yMargin, y+20, CGRectGetWidth(self.view.frame) / 2, 40)
         var pictureButton = UiUtil.createButton("wähle ein Bild aus", myFrame: picButtonFrame, action: Selector ("capture:"), sender: self)
         self.view.addSubview(pictureButton)
-
-
         
         // Picture Image View
         pictureImageView = UIImageView(frame: CGRectMake(CGRectGetMaxX(pictureButton.frame) + leftMargin, y, CGRectGetWidth(self.view.frame) / 2 - rightMargin*2, 120))
-        pictureImageView.backgroundColor = UIColor.greenColor()
+        pictureImageView.backgroundColor = UIColor.whiteColor()
+        pictureImageView.image = UIImage(named: "dummy")
         self.view.addSubview(pictureImageView)
         
         y += CGRectGetHeight(pictureButton.frame) + yMargin

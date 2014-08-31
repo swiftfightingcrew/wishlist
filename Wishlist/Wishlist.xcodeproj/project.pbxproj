@@ -10,6 +10,9 @@
 		0A220E2E19A7470E00943794 /* NewProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A220E2D19A7470E00943794 /* NewProfileViewController.swift */; };
 		0A757DFD19A92B540053EEAC /* ITuneService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A757DFC19A92B540053EEAC /* ITuneService.swift */; };
 		0AC7A0F419A7C08800FC4CA2 /* UiUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC7A0F319A7C08800FC4CA2 /* UiUtil.swift */; };
+		C364C01319B378370056BF4F /* Wishlist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C364C01119B378370056BF4F /* Wishlist.xcdatamodeld */; };
+		C364C01619B37A890056BF4F /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = C364C01519B37A890056BF4F /* Person.swift */; };
+		C364C01819B37EF60056BF4F /* SwiftCoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C364C01719B37EF60056BF4F /* SwiftCoreDataHelper.swift */; };
 		C3C7FCC41990F67800590B4E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C7FCC31990F67800590B4E /* AppDelegate.swift */; };
 		C3C7FCC61990F67800590B4E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C7FCC51990F67800590B4E /* ViewController.swift */; };
 		C3C7FCC91990F67800590B4E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3C7FCC71990F67800590B4E /* Main.storyboard */; };
@@ -31,6 +34,10 @@
 		0A220E2D19A7470E00943794 /* NewProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewProfileViewController.swift; path = Wishlist/ViewController/NewProfileViewController.swift; sourceTree = "<group>"; };
 		0A757DFC19A92B540053EEAC /* ITuneService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ITuneService.swift; path = Services/ITuneService.swift; sourceTree = "<group>"; };
 		0AC7A0F319A7C08800FC4CA2 /* UiUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UiUtil.swift; path = UtilityClasses/UiUtil.swift; sourceTree = "<group>"; };
+		C364C01219B378370056BF4F /* Wishlist.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Wishlist.xcdatamodel; sourceTree = "<group>"; };
+		C364C01419B37A890056BF4F /* Wishlist-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Wishlist-Bridging-Header.h"; sourceTree = "<group>"; };
+		C364C01519B37A890056BF4F /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		C364C01719B37EF60056BF4F /* SwiftCoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftCoreDataHelper.swift; path = ../SwiftCoreDataHelper.swift; sourceTree = "<group>"; };
 		C3C7FCBE1990F67800590B4E /* Wishlist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wishlist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3C7FCC21990F67800590B4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C3C7FCC31990F67800590B4E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +93,14 @@
 			name = UtilityClasses;
 			sourceTree = "<group>";
 		};
+		C364C01919B37F080056BF4F /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				C364C01719B37EF60056BF4F /* SwiftCoreDataHelper.swift */,
+			);
+			name = Helper;
+			sourceTree = "<group>";
+		};
 		C3C7FCB51990F67800590B4E = {
 			isa = PBXGroup;
 			children = (
@@ -107,13 +122,17 @@
 		C3C7FCC01990F67800590B4E /* Wishlist */ = {
 			isa = PBXGroup;
 			children = (
+				C364C01919B37F080056BF4F /* Helper */,
 				0A757DFB19A92B280053EEAC /* Services */,
 				0AC7A0F219A7C04300FC4CA2 /* UtilityClasses */,
 				0A220E2F19A7473400943794 /* ViewController */,
 				C3C7FCC31990F67800590B4E /* AppDelegate.swift */,
 				C3C7FCC71990F67800590B4E /* Main.storyboard */,
 				C3C7FCCA1990F67800590B4E /* Images.xcassets */,
+				C364C01119B378370056BF4F /* Wishlist.xcdatamodeld */,
+				C364C01519B37A890056BF4F /* Person.swift */,
 				C3C7FCC11990F67800590B4E /* Supporting Files */,
+				C364C01419B37A890056BF4F /* Wishlist-Bridging-Header.h */,
 			);
 			path = Wishlist;
 			sourceTree = "<group>";
@@ -242,9 +261,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C364C01319B378370056BF4F /* Wishlist.xcdatamodeld in Sources */,
 				C3C7FCC61990F67800590B4E /* ViewController.swift in Sources */,
 				C3C7FCC41990F67800590B4E /* AppDelegate.swift in Sources */,
 				0A220E2E19A7470E00943794 /* NewProfileViewController.swift in Sources */,
+				C364C01819B37EF60056BF4F /* SwiftCoreDataHelper.swift in Sources */,
+				C364C01619B37A890056BF4F /* Person.swift in Sources */,
 				0A757DFD19A92B540053EEAC /* ITuneService.swift in Sources */,
 				0AC7A0F419A7C08800FC4CA2 /* UiUtil.swift in Sources */,
 			);
@@ -364,9 +386,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Wishlist/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Wishlist/Wishlist-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -375,9 +400,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Wishlist/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Wishlist/Wishlist-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -446,6 +473,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C364C01119B378370056BF4F /* Wishlist.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C364C01219B378370056BF4F /* Wishlist.xcdatamodel */,
+			);
+			currentVersion = C364C01219B378370056BF4F /* Wishlist.xcdatamodel */;
+			path = Wishlist.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C3C7FCB61990F67800590B4E /* Project object */;
 }
