@@ -13,6 +13,8 @@ class NewProfileViewController: UIViewController, UIImagePickerControllerDelegat
 
     var pictureImageView: UIImageView!
     var elements:Array<String>?
+    var ageInput: UITextField = UITextField()
+    var pickerView: AgePickerView!
     
     override func viewDidLoad() {
         self.view.backgroundColor = UIColor.whiteColor()
@@ -98,14 +100,16 @@ class NewProfileViewController: UIViewController, UIImagePickerControllerDelegat
         y += CGRectGetHeight(ageLabel.frame) + yMargin
         
         // Spinner Auswahl Alter
-        var ageInput = UITextField (frame: CGRectMake(10, y, CGRectGetWidth(self.view.frame) - rightMargin, 40))
+        ageInput = UITextField (frame: CGRectMake(10, y, CGRectGetWidth(self.view.frame) - rightMargin, 40))
         ageInput.tag = 2
         ageInput.delegate = self
         ageInput.backgroundColor = UIColor.lightGrayColor()
         self.view.addSubview(ageInput)
         
-        var pickerView = UIPickerView(frame: ageInput.frame)
-        pickerView.delegate = self
+        pickerView = UIView.loadFromNibNamed("AgePickerView") as AgePickerView
+        pickerView.pickerView?.delegate = self
+        pickerView.doneButton?.target = self
+        pickerView.doneButton?.action = "done:"
         ageInput.inputView = pickerView
         
         y += CGRectGetHeight(nameLabel.frame) + yMargin
@@ -151,8 +155,11 @@ class NewProfileViewController: UIViewController, UIImagePickerControllerDelegat
         self.presentViewController(imgViewController, animated: true, completion: nil)
     }
     
-    func done(sender: UIBarButtonItem) {
-        println("huhu")
+    func done(sender: UIButton) {
+        ageInput.resignFirstResponder()
+        var selectedRow = pickerView.pickerView?.selectedRowInComponent(0)
+        var selectedValue = elements![selectedRow!]
+        ageInput.text = selectedValue
     }
     
     // MARK: - UIImagePicker Delegate
@@ -183,15 +190,13 @@ class NewProfileViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     func pickerView(pickerView: UIPickerView!, numberOfRowsInComponent component: Int) -> Int {
-        var doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: "done:")
-        var flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
-        
-        var toolbar = UIToolbar(frame: CGRectMake(0, CGRectGetMinY(pickerView.frame)-40, CGRectGetWidth(self.view.frame), 40))
-        toolbar.backgroundColor = UIColor.yellowColor()
-        toolbar.setItems([flexibleSpace, doneButton], animated: true)
-        self.view.addSubview(toolbar)
-        
         return elements!.count
     }
-    
 }
+
+    //MARK: - Extensions
+    extension UIView {
+        class func loadFromNibNamed(nibNamed: String, bundle : NSBundle = NSBundle.mainBundle()) -> UIView! {
+            return UINib(nibName: nibNamed, bundle: bundle).instantiateWithOwner(nil, options: nil)[0] as? UIView
+        }
+    }

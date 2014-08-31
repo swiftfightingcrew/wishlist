@@ -13,6 +13,8 @@
 		C364C01319B378370056BF4F /* Wishlist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C364C01119B378370056BF4F /* Wishlist.xcdatamodeld */; };
 		C364C01619B37A890056BF4F /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = C364C01519B37A890056BF4F /* Person.swift */; };
 		C364C01819B37EF60056BF4F /* SwiftCoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C364C01719B37EF60056BF4F /* SwiftCoreDataHelper.swift */; };
+		C364C01C19B390B70056BF4F /* AgePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C364C01B19B390B70056BF4F /* AgePickerView.xib */; };
+		C364C01E19B394510056BF4F /* AgePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C364C01D19B394510056BF4F /* AgePickerView.swift */; };
 		C3C7FCC41990F67800590B4E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C7FCC31990F67800590B4E /* AppDelegate.swift */; };
 		C3C7FCC61990F67800590B4E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C7FCC51990F67800590B4E /* ViewController.swift */; };
 		C3C7FCC91990F67800590B4E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3C7FCC71990F67800590B4E /* Main.storyboard */; };
@@ -38,6 +40,8 @@
 		C364C01419B37A890056BF4F /* Wishlist-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Wishlist-Bridging-Header.h"; sourceTree = "<group>"; };
 		C364C01519B37A890056BF4F /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		C364C01719B37EF60056BF4F /* SwiftCoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftCoreDataHelper.swift; path = ../SwiftCoreDataHelper.swift; sourceTree = "<group>"; };
+		C364C01B19B390B70056BF4F /* AgePickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AgePickerView.xib; path = Views/AgePickerView.xib; sourceTree = "<group>"; };
+		C364C01D19B394510056BF4F /* AgePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AgePickerView.swift; path = Views/AgePickerView.swift; sourceTree = "<group>"; };
 		C3C7FCBE1990F67800590B4E /* Wishlist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wishlist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3C7FCC21990F67800590B4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C3C7FCC31990F67800590B4E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -101,6 +105,15 @@
 			name = Helper;
 			sourceTree = "<group>";
 		};
+		C364C01A19B3906F0056BF4F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C364C01B19B390B70056BF4F /* AgePickerView.xib */,
+				C364C01D19B394510056BF4F /* AgePickerView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		C3C7FCB51990F67800590B4E = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +138,7 @@
 				C364C01919B37F080056BF4F /* Helper */,
 				0A757DFB19A92B280053EEAC /* Services */,
 				0AC7A0F219A7C04300FC4CA2 /* UtilityClasses */,
+				C364C01A19B3906F0056BF4F /* Views */,
 				0A220E2F19A7473400943794 /* ViewController */,
 				C3C7FCC31990F67800590B4E /* AppDelegate.swift */,
 				C3C7FCC71990F67800590B4E /* Main.storyboard */,
@@ -242,6 +256,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C364C01C19B390B70056BF4F /* AgePickerView.xib in Resources */,
 				C3C7FCC91990F67800590B4E /* Main.storyboard in Resources */,
 				C3C7FCCB1990F67800590B4E /* Images.xcassets in Resources */,
 			);
@@ -265,6 +280,7 @@
 				C3C7FCC61990F67800590B4E /* ViewController.swift in Sources */,
 				C3C7FCC41990F67800590B4E /* AppDelegate.swift in Sources */,
 				0A220E2E19A7470E00943794 /* NewProfileViewController.swift in Sources */,
+				C364C01E19B394510056BF4F /* AgePickerView.swift in Sources */,
 				C364C01819B37EF60056BF4F /* SwiftCoreDataHelper.swift in Sources */,
 				C364C01619B37A890056BF4F /* Person.swift in Sources */,
 				0A757DFD19A92B540053EEAC /* ITuneService.swift in Sources */,
