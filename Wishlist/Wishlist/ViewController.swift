@@ -64,7 +64,13 @@ class ViewController: UIViewController {
     // MARK: - Actions
     func newButtonTapped(sender: UIButton!) {
         let newProfileViewController = NewProfileViewController()
-        self.showViewController(newProfileViewController, sender: nil)
+        
+        UIView.transitionWithView(self.view, duration: 0.5, options: UIViewAnimationOptions.TransitionCurlUp, animations: { () -> Void in
+                self.view.addSubview(newProfileViewController.view)
+            }, completion: {(finished: Bool) -> () in
+                self.presentViewController(newProfileViewController, animated: false, completion: nil)
+        })
     }
+    
 }
 
