@@ -46,17 +46,9 @@ class PersonTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
         var cell:UITableViewCell? = tableView?.dequeueReusableCellWithIdentifier("Cell") as? UITableViewCell
-        if cell == nil
-        {
-            cell = UITableViewCell(style: UITableViewCellStyle.Subtitle,
-                reuseIdentifier: "Cell")
+        if cell == nil {
+            cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
         }
-        // At this point, we definitely have a cell -- either dequeued or newly created,
-        // so let's force unwrap the optional into a UITableViewCell
-        cell!.detailTextLabel.text = "some text"
-
-        
-        //var cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
         
         let personDict:NSDictionary = personArray.objectAtIndex(indexPath.row) as NSDictionary
         
@@ -67,6 +59,10 @@ class PersonTableViewController: UITableViewController {
         cell!.imageView.image = UIImage(data: imageData)
         
         return cell
+    }
+    
+    override func tableView(tableView: UITableView!, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
     }
     
     //MARK: - Table View Delegate
