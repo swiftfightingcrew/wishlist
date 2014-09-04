@@ -9,8 +9,13 @@
 import UIKit
 import CoreData
 
+protocol PersonSelectionDelegate {
+    func didSelectPerson(personIdentifier:NSString)
+}
+
 class PersonTableViewController: UITableViewController {
     var personArray: NSMutableArray = NSMutableArray()
+    var delegate:PersonSelectionDelegate? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,6 +71,13 @@ class PersonTableViewController: UITableViewController {
     }
     
     //MARK: - Table View Delegate
+    override func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+        if delegate != nil {
+            let personDict:NSDictionary = personArray.objectAtIndex(indexPath.row) as NSDictionary
+            
+            delegate!.didSelectPerson(personDict["Identifier"] as String)
+        }
+    }
     
     
     
