@@ -15,6 +15,7 @@
 		C364C01819B37EF60056BF4F /* SwiftCoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C364C01719B37EF60056BF4F /* SwiftCoreDataHelper.swift */; };
 		C364C01C19B390B70056BF4F /* AgePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C364C01B19B390B70056BF4F /* AgePickerView.xib */; };
 		C364C01E19B394510056BF4F /* AgePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C364C01D19B394510056BF4F /* AgePickerView.swift */; };
+		C3A5E40519B8D014004B4427 /* PersonTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A5E40419B8D014004B4427 /* PersonTableViewController.swift */; };
 		C3C7FCC41990F67800590B4E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C7FCC31990F67800590B4E /* AppDelegate.swift */; };
 		C3C7FCC61990F67800590B4E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C7FCC51990F67800590B4E /* ViewController.swift */; };
 		C3C7FCC91990F67800590B4E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3C7FCC71990F67800590B4E /* Main.storyboard */; };
@@ -42,6 +43,7 @@
 		C364C01719B37EF60056BF4F /* SwiftCoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftCoreDataHelper.swift; path = ../SwiftCoreDataHelper.swift; sourceTree = "<group>"; };
 		C364C01B19B390B70056BF4F /* AgePickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AgePickerView.xib; path = Views/AgePickerView.xib; sourceTree = "<group>"; };
 		C364C01D19B394510056BF4F /* AgePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AgePickerView.swift; path = Views/AgePickerView.swift; sourceTree = "<group>"; };
+		C3A5E40419B8D014004B4427 /* PersonTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PersonTableViewController.swift; path = Wishlist/ViewController/PersonTableViewController.swift; sourceTree = "<group>"; };
 		C3C7FCBE1990F67800590B4E /* Wishlist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wishlist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3C7FCC21990F67800590B4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C3C7FCC31990F67800590B4E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 			children = (
 				C3C7FCC51990F67800590B4E /* ViewController.swift */,
 				0A220E2D19A7470E00943794 /* NewProfileViewController.swift */,
+				C3A5E40419B8D014004B4427 /* PersonTableViewController.swift */,
 			);
 			name = ViewController;
 			path = ..;
@@ -276,6 +279,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3A5E40519B8D014004B4427 /* PersonTableViewController.swift in Sources */,
 				C364C01319B378370056BF4F /* Wishlist.xcdatamodeld in Sources */,
 				C3C7FCC61990F67800590B4E /* ViewController.swift in Sources */,
 				C3C7FCC41990F67800590B4E /* AppDelegate.swift in Sources */,

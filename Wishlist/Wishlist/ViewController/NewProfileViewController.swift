@@ -8,13 +8,16 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 class NewProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
 
     var pictureImageView: UIImageView!
     var elements:Array<String>?
     var ageInput: UITextField = UITextField()
+    var nameInput: UITextField = UITextField()
     var pickerView: AgePickerView!
+    var segmentedControlSex: UISegmentedControl = UISegmentedControl()
     
     override func viewDidLoad() {
         self.view.backgroundColor = UIColor.whiteColor()
@@ -70,7 +73,7 @@ class NewProfileViewController: UIViewController, UIImagePickerControllerDelegat
         y += CGRectGetHeight(nameLabel.frame)
         
         // Name Input
-        var nameInput = UITextField (frame: CGRectMake(10, y, CGRectGetWidth(self.view.frame) - rightMargin, 40))
+        nameInput = UITextField (frame: CGRectMake(10, y, CGRectGetWidth(self.view.frame) - rightMargin, 40))
         nameInput.delegate = self
         nameInput.backgroundColor = UIColor.lightGrayColor()
         self.view.addSubview(nameInput)
@@ -85,7 +88,7 @@ class NewProfileViewController: UIViewController, UIImagePickerControllerDelegat
         y += CGRectGetHeight(sexLabel.frame) + yMargin
 
         // Auswahl Geschlecht (m/w)
-        var segmentedControlSex = UISegmentedControl(items: ["Junge","Mädchen"])
+        segmentedControlSex = UISegmentedControl(items: ["Junge","Mädchen"])
         segmentedControlSex.frame = CGRectMake(0, y, CGRectGetWidth(self.view.frame), 40)
         segmentedControlSex.addTarget(self, action: "valueChanged:", forControlEvents: UIControlEvents.ValueChanged)
         self.view.addSubview(segmentedControlSex)
@@ -168,7 +171,22 @@ class NewProfileViewController: UIViewController, UIImagePickerControllerDelegat
     }
 
     func saveProfile(sender: UIButton) {
-        println("huhu")
+        let moc: NSManagedObjectContext = SwiftCoreDataHelper.managedObjectContext()
+
+        var person: Person = SwiftCoreDataHelper.insertManagedObject(NSStringFromClass(Person), managedObjectConect: moc) as Person
+
+        person.identifier = "\(NSDate())"
+        person.firstName = nameInput.text
+        person.age = ageInput.text
+        person.gender = String(segmentedControlSex.selectedSegmentIndex)
+        
+        let personImageData: NSData = UIImagePNGRepresentation(pictureImageView.image)
+
+        person.personImage = personImageData
+
+        SwiftCoreDataHelper.saveManagedObjectContext(moc)
+
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     // MARK: - UIImagePicker Delegate

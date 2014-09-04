@@ -37,12 +37,12 @@ class ViewController: UIViewController {
         // Choose Button
         var chooseButtonFrame: CGRect = CGRectMake(40, CGRectGetMaxY(infoLabel.frame) + 20, CGRectGetWidth(self.view.frame) - 80, 40)
         // TODO: addTarget
-        chooseButton = UiUtil.createButton("Peter", myFrame: chooseButtonFrame)
+        chooseButton = UiUtil.createButton("Wähle deinen Charakter", myFrame: chooseButtonFrame, action: Selector("chooseCharacter:"), sender: self)
         self.view.addSubview(chooseButton)
     
         // New Button
         var newButtonFrame: CGRect = CGRectMake(40, CGRectGetMaxY(chooseButton.frame) + 20, CGRectGetWidth(self.view.frame) - 80, 40)
-        newButton = UiUtil.createButton("Neuer Character", myFrame: newButtonFrame, action: Selector ("newButtonTapped:"), sender: self)
+        newButton = UiUtil.createButton("Neuer Charakter", myFrame: newButtonFrame, action: Selector ("newButtonTapped:"), sender: self)
         self.view.addSubview(newButton)
     }
 
@@ -70,6 +70,17 @@ class ViewController: UIViewController {
             }, completion: {(finished: Bool) -> () in
                 self.presentViewController(newProfileViewController, animated: false, completion: nil)
         })
+    }
+    
+    func chooseCharacter(sender: UIButton!) {
+        let personTableViewController = PersonTableViewController()
+        
+        UIView.transitionWithView(self.view, duration: 0.5, options: UIViewAnimationOptions.TransitionCurlUp, animations: { () -> Void in
+            self.view.addSubview(personTableViewController.view)
+            }, completion: {(finished: Bool) -> () in
+                self.presentViewController(personTableViewController, animated: false, completion: nil)
+        })
+
     }
     
 }
