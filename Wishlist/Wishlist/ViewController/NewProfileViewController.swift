@@ -112,7 +112,12 @@ class NewProfileViewController: UIViewController, UIImagePickerControllerDelegat
         pickerView.doneButton?.action = "done:"
         ageInput.inputView = pickerView
         
-        y += CGRectGetHeight(nameLabel.frame) + yMargin
+        y += CGRectGetHeight(ageInput.frame) + yMargin
+
+        // Speichern Button
+        var saveButtonFrame: CGRect = CGRectMake(yMargin, y, CGRectGetWidth(self.view.frame) / 2, 40)
+        var saveButton = UiUtil.createButton("Speichern", myFrame: saveButtonFrame, action: Selector ("saveProfile:"), sender: self)
+        self.view.addSubview(saveButton)
     }
     
     override func prefersStatusBarHidden() -> Bool {
@@ -160,6 +165,10 @@ class NewProfileViewController: UIViewController, UIImagePickerControllerDelegat
         var selectedRow = pickerView.pickerView?.selectedRowInComponent(0)
         var selectedValue = elements![selectedRow!]
         ageInput.text = selectedValue
+    }
+
+    func saveProfile(sender: UIButton) {
+        println("huhu")
     }
     
     // MARK: - UIImagePicker Delegate
