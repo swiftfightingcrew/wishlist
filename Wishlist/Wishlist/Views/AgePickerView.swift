@@ -10,6 +10,6 @@ import Foundation
 import UIKit
 
 class AgePickerView: UIView {
-    @IBOutlet weak var pickerView: UIPickerView? = UIPickerView()
-    @IBOutlet weak var doneButton: UIBarButtonItem? = UIBarButtonItem()
+    @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet weak var doneButton: UIBarButtonItem!
 }

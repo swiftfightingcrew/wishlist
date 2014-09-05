@@ -16,6 +16,11 @@
 		C364C01C19B390B70056BF4F /* AgePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C364C01B19B390B70056BF4F /* AgePickerView.xib */; };
 		C364C01E19B394510056BF4F /* AgePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C364C01D19B394510056BF4F /* AgePickerView.swift */; };
 		C3A5E40519B8D014004B4427 /* PersonTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A5E40419B8D014004B4427 /* PersonTableViewController.swift */; };
+		C3C1F10519B9A29900D82D3D /* WishlistDashboardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3C1F10419B9A29900D82D3D /* WishlistDashboardView.xib */; };
+		C3C1F10719B9A55D00D82D3D /* WishlistDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C1F10619B9A55D00D82D3D /* WishlistDashboardView.swift */; };
+		C3C1F10919B9A6FA00D82D3D /* WishlistDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C1F10819B9A6FA00D82D3D /* WishlistDashboardViewController.swift */; };
+		C3C1F10B19B9B45F00D82D3D /* WishlistView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3C1F10A19B9B45F00D82D3D /* WishlistView.xib */; };
+		C3C1F10D19B9B46C00D82D3D /* WishlistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C1F10C19B9B46C00D82D3D /* WishlistView.swift */; };
 		C3C7FCC41990F67800590B4E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C7FCC31990F67800590B4E /* AppDelegate.swift */; };
 		C3C7FCC61990F67800590B4E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C7FCC51990F67800590B4E /* ViewController.swift */; };
 		C3C7FCC91990F67800590B4E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3C7FCC71990F67800590B4E /* Main.storyboard */; };
@@ -44,6 +49,11 @@
 		C364C01B19B390B70056BF4F /* AgePickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AgePickerView.xib; path = Views/AgePickerView.xib; sourceTree = "<group>"; };
 		C364C01D19B394510056BF4F /* AgePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AgePickerView.swift; path = Views/AgePickerView.swift; sourceTree = "<group>"; };
 		C3A5E40419B8D014004B4427 /* PersonTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PersonTableViewController.swift; path = Wishlist/ViewController/PersonTableViewController.swift; sourceTree = "<group>"; };
+		C3C1F10419B9A29900D82D3D /* WishlistDashboardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WishlistDashboardView.xib; path = Views/WishlistDashboardView.xib; sourceTree = "<group>"; };
+		C3C1F10619B9A55D00D82D3D /* WishlistDashboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WishlistDashboardView.swift; path = Views/WishlistDashboardView.swift; sourceTree = "<group>"; };
+		C3C1F10819B9A6FA00D82D3D /* WishlistDashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WishlistDashboardViewController.swift; path = Wishlist/ViewController/WishlistDashboardViewController.swift; sourceTree = "<group>"; };
+		C3C1F10A19B9B45F00D82D3D /* WishlistView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WishlistView.xib; path = Views/WishlistView.xib; sourceTree = "<group>"; };
+		C3C1F10C19B9B46C00D82D3D /* WishlistView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WishlistView.swift; path = Views/WishlistView.swift; sourceTree = "<group>"; };
 		C3C7FCBE1990F67800590B4E /* Wishlist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wishlist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3C7FCC21990F67800590B4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C3C7FCC31990F67800590B4E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +89,7 @@
 				C3C7FCC51990F67800590B4E /* ViewController.swift */,
 				0A220E2D19A7470E00943794 /* NewProfileViewController.swift */,
 				C3A5E40419B8D014004B4427 /* PersonTableViewController.swift */,
+				C3C1F10819B9A6FA00D82D3D /* WishlistDashboardViewController.swift */,
 			);
 			name = ViewController;
 			path = ..;
@@ -113,6 +124,10 @@
 			children = (
 				C364C01B19B390B70056BF4F /* AgePickerView.xib */,
 				C364C01D19B394510056BF4F /* AgePickerView.swift */,
+				C3C1F10419B9A29900D82D3D /* WishlistDashboardView.xib */,
+				C3C1F10619B9A55D00D82D3D /* WishlistDashboardView.swift */,
+				C3C1F10A19B9B45F00D82D3D /* WishlistView.xib */,
+				C3C1F10C19B9B46C00D82D3D /* WishlistView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -259,6 +274,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3C1F10B19B9B45F00D82D3D /* WishlistView.xib in Resources */,
+				C3C1F10519B9A29900D82D3D /* WishlistDashboardView.xib in Resources */,
 				C364C01C19B390B70056BF4F /* AgePickerView.xib in Resources */,
 				C3C7FCC91990F67800590B4E /* Main.storyboard in Resources */,
 				C3C7FCCB1990F67800590B4E /* Images.xcassets in Resources */,
@@ -279,15 +296,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3C1F10D19B9B46C00D82D3D /* WishlistView.swift in Sources */,
 				C3A5E40519B8D014004B4427 /* PersonTableViewController.swift in Sources */,
 				C364C01319B378370056BF4F /* Wishlist.xcdatamodeld in Sources */,
 				C3C7FCC61990F67800590B4E /* ViewController.swift in Sources */,
 				C3C7FCC41990F67800590B4E /* AppDelegate.swift in Sources */,
 				0A220E2E19A7470E00943794 /* NewProfileViewController.swift in Sources */,
 				C364C01E19B394510056BF4F /* AgePickerView.swift in Sources */,
+				C3C1F10919B9A6FA00D82D3D /* WishlistDashboardViewController.swift in Sources */,
 				C364C01819B37EF60056BF4F /* SwiftCoreDataHelper.swift in Sources */,
 				C364C01619B37A890056BF4F /* Person.swift in Sources */,
 				0A757DFD19A92B540053EEAC /* ITuneService.swift in Sources */,
+				C3C1F10719B9A55D00D82D3D /* WishlistDashboardView.swift in Sources */,
 				0AC7A0F419A7C08800FC4CA2 /* UiUtil.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

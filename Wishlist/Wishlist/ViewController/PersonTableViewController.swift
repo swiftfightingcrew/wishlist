@@ -73,5 +73,6 @@ class PersonTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let personDict:NSDictionary = personArray.objectAtIndex(indexPath.row) as NSDictionary
         
+        self.presentViewController(WishlistDashboardViewController(), animated: true, completion: nil)
     }
 }
