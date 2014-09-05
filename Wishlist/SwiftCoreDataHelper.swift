@@ -64,7 +64,7 @@ class SwiftCoreDataHelper: NSObject {
     
     class func fetchEntities(className:NSString, withPredicate predicate:NSPredicate?, managedObjectContext:NSManagedObjectContext)->NSArray{
         let fetchRequest:NSFetchRequest = NSFetchRequest()
-        let entetyDescription:NSEntityDescription = NSEntityDescription.entityForName(className, inManagedObjectContext: managedObjectContext)
+        let entetyDescription:NSEntityDescription = NSEntityDescription.entityForName(className, inManagedObjectContext: managedObjectContext)!
         
         fetchRequest.entity = entetyDescription
         if (predicate != nil){
@@ -72,7 +72,7 @@ class SwiftCoreDataHelper: NSObject {
         }
         
         fetchRequest.returnsObjectsAsFaults = false
-        let items:NSArray = managedObjectContext .executeFetchRequest(fetchRequest, error: nil)
+        let items:NSArray = managedObjectContext.executeFetchRequest(fetchRequest, error: nil)!
         
         return items
     }

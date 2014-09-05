@@ -193,7 +193,7 @@ class NewProfileViewController: UIViewController, UIImagePickerControllerDelegat
     func imagePickerController(picker: UIImagePickerController!, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]!) {
         println("Show the captured image")
         self.dismissViewControllerAnimated(true, completion: nil)
-        pictureImageView.image = info[UIImagePickerControllerOriginalImage] as UIImage
+        pictureImageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
     }
     
     // MARK: - UITextFieldDelegate
@@ -208,15 +208,15 @@ class NewProfileViewController: UIViewController, UIImagePickerControllerDelegat
     }
 
     // MARK: - UIPickerViewDelegate
-    func numberOfComponentsInPickerView(pickerView: UIPickerView!) -> Int {
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
     }
     
-    func pickerView(pickerView: UIPickerView!, titleForRow row: Int, forComponent component: Int) -> String! {
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
         return elements![row]
     }
     
-    func pickerView(pickerView: UIPickerView!, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return elements!.count
     }
 }

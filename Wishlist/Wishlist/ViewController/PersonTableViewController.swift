@@ -40,37 +40,37 @@ class PersonTableViewController: UITableViewController {
     }
     
     // MARK: - Table View Data Source
-    override func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return personArray.count
     }
     
-    override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
-        var cell:UITableViewCell? = tableView?.dequeueReusableCellWithIdentifier("Cell") as? UITableViewCell
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var cell:UITableViewCell? = tableView.dequeueReusableCellWithIdentifier("Cell") as? UITableViewCell
         if cell == nil {
             cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
         }
         
         let personDict:NSDictionary = personArray.objectAtIndex(indexPath.row) as NSDictionary
         
-        cell!.textLabel.text = personDict["firstName"] as String
-        cell!.detailTextLabel.text = personDict["age"] as String
+        cell?.textLabel?.text = personDict["firstName"] as? String
+        cell?.detailTextLabel?.text = personDict["age"] as? String
         
         let imageData:NSData = personDict["personImage"] as NSData
-        cell!.imageView.image = UIImage(data: imageData)
+        cell?.imageView?.image = UIImage(data: imageData)
         
-        return cell
+        return cell!
     }
     
-    override func tableView(tableView: UITableView!, heightForHeaderInSection section: Int) -> CGFloat {
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 40
     }
     
-    override func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 50
     }
     
     //MARK: - Table View Delegate
-    override func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let personDict:NSDictionary = personArray.objectAtIndex(indexPath.row) as NSDictionary
         
     }
