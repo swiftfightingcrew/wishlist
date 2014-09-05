@@ -28,7 +28,7 @@
                 <outlet property="doneButton" destination="niR-3U-sSF" id="jHg-eE-BzU"/>
                 <outlet property="pickerView" destination="rnp-I9-Lxe" id="h8H-ov-0nc"/>
             </connections>
-            <point key="canvasLocation" x="240" y="341"/>
+            <point key="canvasLocation" x="77" y="331"/>
         </view>
     </objects>
 </document>

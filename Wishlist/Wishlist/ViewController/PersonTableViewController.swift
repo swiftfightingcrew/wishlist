@@ -65,8 +65,13 @@ class PersonTableViewController: UITableViewController {
         return 40
     }
     
+    override func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
+        return 50
+    }
+    
     //MARK: - Table View Delegate
     override func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
         let personDict:NSDictionary = personArray.objectAtIndex(indexPath.row) as NSDictionary
+        
     }
 }
