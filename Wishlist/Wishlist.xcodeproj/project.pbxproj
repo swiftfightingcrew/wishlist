@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0A220E2E19A7470E00943794 /* NewProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A220E2D19A7470E00943794 /* NewProfileViewController.swift */; };
-		0A757DFD19A92B540053EEAC /* ITuneService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A757DFC19A92B540053EEAC /* ITuneService.swift */; };
+		0A757DFD19A92B540053EEAC /* ITunesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A757DFC19A92B540053EEAC /* ITunesService.swift */; };
 		0AC7A0F419A7C08800FC4CA2 /* UiUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC7A0F319A7C08800FC4CA2 /* UiUtil.swift */; };
 		C364C01319B378370056BF4F /* Wishlist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C364C01119B378370056BF4F /* Wishlist.xcdatamodeld */; };
 		C364C01619B37A890056BF4F /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = C364C01519B37A890056BF4F /* Person.swift */; };
@@ -21,6 +21,7 @@
 		C3C1F10919B9A6FA00D82D3D /* WishlistDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C1F10819B9A6FA00D82D3D /* WishlistDashboardViewController.swift */; };
 		C3C1F10B19B9B45F00D82D3D /* WishlistView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3C1F10A19B9B45F00D82D3D /* WishlistView.xib */; };
 		C3C1F10D19B9B46C00D82D3D /* WishlistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C1F10C19B9B46C00D82D3D /* WishlistView.swift */; };
+		C3C1F10F19B9B52F00D82D3D /* WishlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C1F10E19B9B52F00D82D3D /* WishlistViewController.swift */; };
 		C3C7FCC41990F67800590B4E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C7FCC31990F67800590B4E /* AppDelegate.swift */; };
 		C3C7FCC61990F67800590B4E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C7FCC51990F67800590B4E /* ViewController.swift */; };
 		C3C7FCC91990F67800590B4E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3C7FCC71990F67800590B4E /* Main.storyboard */; };
@@ -40,7 +41,7 @@
 
 /* Begin PBXFileReference section */
 		0A220E2D19A7470E00943794 /* NewProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewProfileViewController.swift; path = Wishlist/ViewController/NewProfileViewController.swift; sourceTree = "<group>"; };
-		0A757DFC19A92B540053EEAC /* ITuneService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ITuneService.swift; path = Services/ITuneService.swift; sourceTree = "<group>"; };
+		0A757DFC19A92B540053EEAC /* ITunesService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ITunesService.swift; path = Services/ITunesService.swift; sourceTree = "<group>"; };
 		0AC7A0F319A7C08800FC4CA2 /* UiUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UiUtil.swift; path = UtilityClasses/UiUtil.swift; sourceTree = "<group>"; };
 		C364C01219B378370056BF4F /* Wishlist.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Wishlist.xcdatamodel; sourceTree = "<group>"; };
 		C364C01419B37A890056BF4F /* Wishlist-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Wishlist-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -54,6 +55,7 @@
 		C3C1F10819B9A6FA00D82D3D /* WishlistDashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WishlistDashboardViewController.swift; path = Wishlist/ViewController/WishlistDashboardViewController.swift; sourceTree = "<group>"; };
 		C3C1F10A19B9B45F00D82D3D /* WishlistView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WishlistView.xib; path = Views/WishlistView.xib; sourceTree = "<group>"; };
 		C3C1F10C19B9B46C00D82D3D /* WishlistView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WishlistView.swift; path = Views/WishlistView.swift; sourceTree = "<group>"; };
+		C3C1F10E19B9B52F00D82D3D /* WishlistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WishlistViewController.swift; path = Wishlist/ViewController/WishlistViewController.swift; sourceTree = "<group>"; };
 		C3C7FCBE1990F67800590B4E /* Wishlist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wishlist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3C7FCC21990F67800590B4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C3C7FCC31990F67800590B4E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				0A220E2D19A7470E00943794 /* NewProfileViewController.swift */,
 				C3A5E40419B8D014004B4427 /* PersonTableViewController.swift */,
 				C3C1F10819B9A6FA00D82D3D /* WishlistDashboardViewController.swift */,
+				C3C1F10E19B9B52F00D82D3D /* WishlistViewController.swift */,
 			);
 			name = ViewController;
 			path = ..;
@@ -98,7 +101,7 @@
 		0A757DFB19A92B280053EEAC /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				0A757DFC19A92B540053EEAC /* ITuneService.swift */,
+				0A757DFC19A92B540053EEAC /* ITunesService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 				C3C1F10D19B9B46C00D82D3D /* WishlistView.swift in Sources */,
 				C3A5E40519B8D014004B4427 /* PersonTableViewController.swift in Sources */,
 				C364C01319B378370056BF4F /* Wishlist.xcdatamodeld in Sources */,
+				C3C1F10F19B9B52F00D82D3D /* WishlistViewController.swift in Sources */,
 				C3C7FCC61990F67800590B4E /* ViewController.swift in Sources */,
 				C3C7FCC41990F67800590B4E /* AppDelegate.swift in Sources */,
 				0A220E2E19A7470E00943794 /* NewProfileViewController.swift in Sources */,
@@ -306,7 +310,7 @@
 				C3C1F10919B9A6FA00D82D3D /* WishlistDashboardViewController.swift in Sources */,
 				C364C01819B37EF60056BF4F /* SwiftCoreDataHelper.swift in Sources */,
 				C364C01619B37A890056BF4F /* Person.swift in Sources */,
-				0A757DFD19A92B540053EEAC /* ITuneService.swift in Sources */,
+				0A757DFD19A92B540053EEAC /* ITunesService.swift in Sources */,
 				C3C1F10719B9A55D00D82D3D /* WishlistDashboardView.swift in Sources */,
 				0AC7A0F419A7C08800FC4CA2 /* UiUtil.swift in Sources */,
 			);

@@ -10,5 +10,6 @@ import Foundation
 import UIKit
 
 class WishlistView: UIView {
-    
+    @IBOutlet var textView: UITextView!
+    @IBOutlet var imageView: UIImageView!
 }

@@ -23,6 +23,6 @@ class WishlistDashboardViewController: UIViewController {
     }
     
     func newButtonTapped(sender: UIButton) {
-        println("huhu")
+        self.presentViewController(WishlistViewController(), animated: true, completion: nil)
     }
 }

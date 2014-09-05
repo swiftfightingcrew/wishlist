@@ -8,8 +8,14 @@
 
 import Foundation
 
-class ITuneService {
-    class func searchItunesFor(searchTerm: String?) {
+protocol ITunesServiceDelegate {
+    func didReceiveResults(results: NSArray)
+}
+
+class ITunesService {
+    var delegate:ITunesServiceDelegate? = nil
+    
+    func searchItunesFor(searchTerm: String?) {
         
         // The iTunes API wants multiple terms separated by + symbols, so replace spaces with + signs
        let itunesSearchTerm =  searchTerm?.stringByReplacingOccurrencesOfString(" ", withString: "+", options: NSStringCompareOptions.CaseInsensitiveSearch, range: nil)
@@ -34,9 +40,9 @@ class ITuneService {
                 }
                 let results: NSArray = jsonResult["results"] as NSArray
                 dispatch_async(dispatch_get_main_queue(), {
-                       println("JSON Response: \(jsonResult)")
-   //                 self.tableData = results
-   //                 self.appsTableView!.reloadData()
+                    if self.delegate != nil {
+                        self.delegate!.didReceiveResults(results)
+                    }
                 })
             })
             
