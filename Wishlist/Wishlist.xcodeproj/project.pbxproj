@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0A220E2E19A7470E00943794 /* NewProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A220E2D19A7470E00943794 /* NewProfileViewController.swift */; };
 		0A757DFD19A92B540053EEAC /* ITunesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A757DFC19A92B540053EEAC /* ITunesService.swift */; };
+		0AAC07EF19C08F7700DF4A16 /* Wishlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC07EE19C08F7700DF4A16 /* Wishlist.swift */; };
 		0AC7A0F419A7C08800FC4CA2 /* UiUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC7A0F319A7C08800FC4CA2 /* UiUtil.swift */; };
 		C364C01319B378370056BF4F /* Wishlist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C364C01119B378370056BF4F /* Wishlist.xcdatamodeld */; };
 		C364C01619B37A890056BF4F /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = C364C01519B37A890056BF4F /* Person.swift */; };
@@ -42,6 +43,7 @@
 /* Begin PBXFileReference section */
 		0A220E2D19A7470E00943794 /* NewProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewProfileViewController.swift; path = Wishlist/ViewController/NewProfileViewController.swift; sourceTree = "<group>"; };
 		0A757DFC19A92B540053EEAC /* ITunesService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ITunesService.swift; path = Services/ITunesService.swift; sourceTree = "<group>"; };
+		0AAC07EE19C08F7700DF4A16 /* Wishlist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wishlist.swift; sourceTree = "<group>"; };
 		0AC7A0F319A7C08800FC4CA2 /* UiUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UiUtil.swift; path = UtilityClasses/UiUtil.swift; sourceTree = "<group>"; };
 		C364C01219B378370056BF4F /* Wishlist.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Wishlist.xcdatamodel; sourceTree = "<group>"; };
 		C364C01419B37A890056BF4F /* Wishlist-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Wishlist-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 				C3C7FCC71990F67800590B4E /* Main.storyboard */,
 				C3C7FCCA1990F67800590B4E /* Images.xcassets */,
 				C364C01119B378370056BF4F /* Wishlist.xcdatamodeld */,
+				0AAC07EE19C08F7700DF4A16 /* Wishlist.swift */,
 				C364C01519B37A890056BF4F /* Person.swift */,
 				C3C7FCC11990F67800590B4E /* Supporting Files */,
 				C364C01419B37A890056BF4F /* Wishlist-Bridging-Header.h */,
@@ -300,6 +303,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3C1F10D19B9B46C00D82D3D /* WishlistView.swift in Sources */,
+				0AAC07EF19C08F7700DF4A16 /* Wishlist.swift in Sources */,
 				C3A5E40519B8D014004B4427 /* PersonTableViewController.swift in Sources */,
 				C364C01319B378370056BF4F /* Wishlist.xcdatamodeld in Sources */,
 				C3C1F10F19B9B52F00D82D3D /* WishlistViewController.swift in Sources */,

@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6220.14" systemVersion="13E28" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6220.17" systemVersion="13E28" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Person" representedClassName="Person" syncable="YES">
         <attribute name="age" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="gender" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="identifier" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="personImage" optional="YES" attributeType="Binary" syncable="YES"/>
+        <relationship name="personIDRelationship" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Wishlist" inverseName="personIDRelationship" inverseEntity="Wishlist" syncable="YES"/>
+    </entity>
+    <entity name="Wishlist" representedClassName="Wishlist" syncable="YES">
+        <attribute name="id" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="letter" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="personId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="productImage" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="personIDRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Person" inverseName="personIDRelationship" inverseEntity="Person" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Person" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="Person" positionX="-387" positionY="-16" width="128" height="133"/>
+        <element name="Wishlist" positionX="-63" positionY="18" width="128" height="133"/>
     </elements>
 </model>

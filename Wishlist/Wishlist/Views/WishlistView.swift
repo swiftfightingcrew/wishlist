@@ -12,4 +12,8 @@ import UIKit
 class WishlistView: UIView {
     @IBOutlet var textView: UITextView!
     @IBOutlet var imageView: UIImageView!
+    @IBOutlet var titleText: UITextField!
+    @IBOutlet var saveButton: UIButton!
+    @IBOutlet var sendButton: UIButton!
+    
 }

@@ -16,7 +16,7 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" keyboardDismissMode="onDrag" text="Was wünscht du dir?" translatesAutoresizingMaskIntoConstraints="NO" id="IXd-Nv-Tdf">
-                    <rect key="frame" x="8" y="228" width="304" height="239"/>
+                    <rect key="frame" x="8" y="228" width="304" height="291"/>
                     <color key="backgroundColor" red="0.62738245370312495" green="0.90244199453808205" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -30,13 +30,22 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q4w-sa-xRg">
                     <rect key="frame" x="66" y="101" width="189" height="102"/>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="41O-hw-x1C">
+                    <rect key="frame" x="8" y="8" width="77" height="30"/>
+                    <state key="normal" title="Speichern">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="imageView" destination="Q4w-sa-xRg" id="811-su-5O8"/>
+                <outlet property="saveButton" destination="41O-hw-x1C" id="0ok-I3-BoN"/>
+                <outlet property="sendButton" destination="ukq-On-x2g" id="UlG-q7-vP6"/>
                 <outlet property="textView" destination="IXd-Nv-Tdf" id="cUx-3v-nvy"/>
+                <outlet property="titleText" destination="jSP-c5-lp3" id="0yN-oS-8UP"/>
             </connections>
         </view>
     </objects>

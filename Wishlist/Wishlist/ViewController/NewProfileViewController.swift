@@ -11,7 +11,7 @@ import UIKit
 import CoreData
 
 class NewProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
-
+    
     var pictureImageView: UIImageView!
     var elements:Array<String>?
     var ageInput: UITextField = UITextField()
@@ -79,14 +79,14 @@ class NewProfileViewController: UIViewController, UIImagePickerControllerDelegat
         self.view.addSubview(nameInput)
         
         y += CGRectGetHeight(nameLabel.frame) + yMargin
-
+        
         // Sex Label
         var sexLabelFrame = CGRectMake(0, y, CGRectGetWidth(self.view.frame), 40)
         var sexLabel = UiUtil.createLabel("Bist du ein Junge oder ein Mädchen?", myFrame: sexLabelFrame)
         self.view.addSubview(sexLabel)
-      
+        
         y += CGRectGetHeight(sexLabel.frame) + yMargin
-
+        
         // Auswahl Geschlecht (m/w)
         segmentedControlSex = UISegmentedControl(items: ["Junge","Mädchen"])
         segmentedControlSex.frame = CGRectMake(0, y, CGRectGetWidth(self.view.frame), 40)
@@ -116,7 +116,7 @@ class NewProfileViewController: UIViewController, UIImagePickerControllerDelegat
         ageInput.inputView = pickerView
         
         y += CGRectGetHeight(ageInput.frame) + yMargin
-
+        
         // Speichern Button
         var saveButtonFrame: CGRect = CGRectMake(yMargin, y, CGRectGetWidth(self.view.frame) / 2, 40)
         var saveButton = UiUtil.createButton("Speichern", myFrame: saveButtonFrame, action: Selector ("saveProfile:"), sender: self)
@@ -148,7 +148,7 @@ class NewProfileViewController: UIViewController, UIImagePickerControllerDelegat
         
         self.presentViewController(imgViewController, animated: true, completion: nil)
     }
-
+    
     func captureNew(sender: UIButton) {
         // neues Foto aufnehmen
         if !UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
@@ -169,23 +169,23 @@ class NewProfileViewController: UIViewController, UIImagePickerControllerDelegat
         var selectedValue = elements![selectedRow!]
         ageInput.text = selectedValue
     }
-
+    
     func saveProfile(sender: UIButton) {
         let moc: NSManagedObjectContext = SwiftCoreDataHelper.managedObjectContext()
-
+        
         var person: Person = SwiftCoreDataHelper.insertManagedObject(NSStringFromClass(Person), managedObjectConect: moc) as Person
-
+        
         person.identifier = "\(NSDate())"
         person.firstName = nameInput.text
         person.age = ageInput.text
         person.gender = String(segmentedControlSex.selectedSegmentIndex)
         
         let personImageData: NSData = UIImagePNGRepresentation(pictureImageView.image)
-
+        
         person.personImage = personImageData
-
+        
         SwiftCoreDataHelper.saveManagedObjectContext(moc)
-
+        
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -194,6 +194,10 @@ class NewProfileViewController: UIViewController, UIImagePickerControllerDelegat
         println("Show the captured image")
         self.dismissViewControllerAnimated(true, completion: nil)
         pictureImageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+    }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     // MARK: - UITextFieldDelegate
@@ -206,7 +210,7 @@ class NewProfileViewController: UIViewController, UIImagePickerControllerDelegat
         
         return true
     }
-
+    
     // MARK: - UIPickerViewDelegate
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
@@ -221,9 +225,9 @@ class NewProfileViewController: UIViewController, UIImagePickerControllerDelegat
     }
 }
 
-    //MARK: - Extensions
-    extension UIView {
-        class func loadFromNibNamed(nibNamed: String, bundle : NSBundle = NSBundle.mainBundle()) -> UIView! {
-            return UINib(nibName: nibNamed, bundle: bundle).instantiateWithOwner(nil, options: nil)[0] as? UIView
-        }
+//MARK: - Extensions
+extension UIView {
+    class func loadFromNibNamed(nibNamed: String, bundle : NSBundle = NSBundle.mainBundle()) -> UIView! {
+        return UINib(nibName: nibNamed, bundle: bundle).instantiateWithOwner(nil, options: nil)[0] as? UIView
     }
+}
