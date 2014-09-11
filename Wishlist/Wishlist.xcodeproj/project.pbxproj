@@ -11,6 +11,8 @@
 		0A757DFD19A92B540053EEAC /* ITunesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A757DFC19A92B540053EEAC /* ITunesService.swift */; };
 		0AAC07EF19C08F7700DF4A16 /* Wishlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC07EE19C08F7700DF4A16 /* Wishlist.swift */; };
 		0AC7A0F419A7C08800FC4CA2 /* UiUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC7A0F319A7C08800FC4CA2 /* UiUtil.swift */; };
+		C33B349B19C2310000AB0CB8 /* NewProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C33B349A19C2310000AB0CB8 /* NewProfileView.xib */; };
+		C33B349D19C2343300AB0CB8 /* NewProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33B349C19C2343300AB0CB8 /* NewProfileView.swift */; };
 		C364C01319B378370056BF4F /* Wishlist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C364C01119B378370056BF4F /* Wishlist.xcdatamodeld */; };
 		C364C01619B37A890056BF4F /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = C364C01519B37A890056BF4F /* Person.swift */; };
 		C364C01819B37EF60056BF4F /* SwiftCoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C364C01719B37EF60056BF4F /* SwiftCoreDataHelper.swift */; };
@@ -45,6 +47,8 @@
 		0A757DFC19A92B540053EEAC /* ITunesService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ITunesService.swift; path = Services/ITunesService.swift; sourceTree = "<group>"; };
 		0AAC07EE19C08F7700DF4A16 /* Wishlist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wishlist.swift; sourceTree = "<group>"; };
 		0AC7A0F319A7C08800FC4CA2 /* UiUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UiUtil.swift; path = UtilityClasses/UiUtil.swift; sourceTree = "<group>"; };
+		C33B349A19C2310000AB0CB8 /* NewProfileView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NewProfileView.xib; path = Views/NewProfileView.xib; sourceTree = "<group>"; };
+		C33B349C19C2343300AB0CB8 /* NewProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewProfileView.swift; path = Views/NewProfileView.swift; sourceTree = "<group>"; };
 		C364C01219B378370056BF4F /* Wishlist.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Wishlist.xcdatamodel; sourceTree = "<group>"; };
 		C364C01419B37A890056BF4F /* Wishlist-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Wishlist-Bridging-Header.h"; sourceTree = "<group>"; };
 		C364C01519B37A890056BF4F /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
@@ -133,6 +137,8 @@
 				C3C1F10619B9A55D00D82D3D /* WishlistDashboardView.swift */,
 				C3C1F10A19B9B45F00D82D3D /* WishlistView.xib */,
 				C3C1F10C19B9B46C00D82D3D /* WishlistView.swift */,
+				C33B349A19C2310000AB0CB8 /* NewProfileView.xib */,
+				C33B349C19C2343300AB0CB8 /* NewProfileView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -285,6 +291,7 @@
 				C364C01C19B390B70056BF4F /* AgePickerView.xib in Resources */,
 				C3C7FCC91990F67800590B4E /* Main.storyboard in Resources */,
 				C3C7FCCB1990F67800590B4E /* Images.xcassets in Resources */,
+				C33B349B19C2310000AB0CB8 /* NewProfileView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,6 +314,7 @@
 				C3A5E40519B8D014004B4427 /* PersonTableViewController.swift in Sources */,
 				C364C01319B378370056BF4F /* Wishlist.xcdatamodeld in Sources */,
 				C3C1F10F19B9B52F00D82D3D /* WishlistViewController.swift in Sources */,
+				C33B349D19C2343300AB0CB8 /* NewProfileView.swift in Sources */,
 				C3C7FCC61990F67800590B4E /* ViewController.swift in Sources */,
 				C3C7FCC41990F67800590B4E /* AppDelegate.swift in Sources */,
 				0A220E2E19A7470E00943794 /* NewProfileViewController.swift in Sources */,

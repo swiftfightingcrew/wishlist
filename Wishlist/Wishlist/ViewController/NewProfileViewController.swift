@@ -12,115 +12,35 @@ import CoreData
 
 class NewProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    var pictureImageView: UIImageView!
+    var newProfileView: NewProfileView!
     var elements:Array<String>?
-    var ageInput: UITextField = UITextField()
-    var nameInput: UITextField = UITextField()
     var pickerView: AgePickerView!
-    var segmentedControlSex: UISegmentedControl = UISegmentedControl()
     
     override func viewDidLoad() {
         self.view.backgroundColor = UIColor.whiteColor()
         self.modalTransitionStyle = UIModalTransitionStyle.PartialCurl
         
-        elements = []
-        for index in 1...16 {
-            elements!.append(String(index))
-        }
-        
-        self.setupScreen()
-    }
-    
-    func setupScreen() {
-        var y: CGFloat = 0
-        var yMargin: CGFloat = 15
-        var leftMargin: CGFloat = 10
-        var rightMargin: CGFloat = 20
-        
-        // Info Text
-        var infoTextFrame = CGRectMake(0, y, CGRectGetWidth(self.view.frame), 60)
-        var infoLabel = UiUtil.createLabel("erstelle hier dein neues Profil", myFrame: infoTextFrame)
-        infoLabel.numberOfLines = 0 // mehrzeilig
-        self.view.addSubview(infoLabel)
-        
-        y += CGRectGetHeight(infoLabel.frame) + yMargin
-        
-        // Picture Button
-        var picButtonFrame: CGRect = CGRectMake(yMargin, y+20, CGRectGetWidth(self.view.frame) / 2, 40)
-        var pictureButton = UiUtil.createButton("wähle ein Bild aus", myFrame: picButtonFrame, action: Selector ("capture:"), sender: self)
-        self.view.addSubview(pictureButton)
-        
-        // Picture Image View
-        pictureImageView = UIImageView(frame: CGRectMake(CGRectGetMaxX(pictureButton.frame) + leftMargin, y, CGRectGetWidth(self.view.frame) / 2 - rightMargin*2, 120))
-        pictureImageView.backgroundColor = UIColor.whiteColor()
-        pictureImageView.image = UIImage(named: "dummy")
-        self.view.addSubview(pictureImageView)
-        
-        y += CGRectGetHeight(pictureButton.frame) + yMargin
-        
-        // Picture Button
-        var camButtonFrame: CGRect = CGRectMake(yMargin, y+20, CGRectGetWidth(self.view.frame) / 2, 40)
-        var cameraButton = UiUtil.createButton("neues Foto", myFrame: camButtonFrame, action: Selector ("captureNew:"), sender: self)
-        self.view.addSubview(cameraButton)
-        
-        y += CGRectGetHeight(cameraButton.frame) + yMargin * 2
-        
-        // Name Label
-        var nameLabelFrame = CGRectMake(0, y, CGRectGetWidth(self.view.frame), 40)
-        var nameLabel = UiUtil.createLabel("Wie heißt du?", myFrame: nameLabelFrame)
-        self.view.addSubview(nameLabel)
-        
-        y += CGRectGetHeight(nameLabel.frame)
-        
-        // Name Input
-        nameInput = UITextField (frame: CGRectMake(10, y, CGRectGetWidth(self.view.frame) - rightMargin, 40))
-        nameInput.delegate = self
-        nameInput.backgroundColor = UIColor.lightGrayColor()
-        self.view.addSubview(nameInput)
-        
-        y += CGRectGetHeight(nameLabel.frame) + yMargin
-        
-        // Sex Label
-        var sexLabelFrame = CGRectMake(0, y, CGRectGetWidth(self.view.frame), 40)
-        var sexLabel = UiUtil.createLabel("Bist du ein Junge oder ein Mädchen?", myFrame: sexLabelFrame)
-        self.view.addSubview(sexLabel)
-        
-        y += CGRectGetHeight(sexLabel.frame) + yMargin
-        
-        // Auswahl Geschlecht (m/w)
-        segmentedControlSex = UISegmentedControl(items: ["Junge","Mädchen"])
-        segmentedControlSex.frame = CGRectMake(0, y, CGRectGetWidth(self.view.frame), 40)
-        segmentedControlSex.addTarget(self, action: "valueChanged:", forControlEvents: UIControlEvents.ValueChanged)
-        self.view.addSubview(segmentedControlSex)
-        
-        y += CGRectGetHeight(segmentedControlSex.frame) + yMargin
-        
-        // Age Label
-        var ageLabelFrame = CGRectMake(0, y, CGRectGetWidth(self.view.frame), 40)
-        var ageLabel = UiUtil.createLabel("Wie alt bist du?", myFrame: ageLabelFrame)
-        self.view.addSubview(ageLabel)
-        
-        y += CGRectGetHeight(ageLabel.frame) + yMargin
-        
-        // Spinner Auswahl Alter
-        ageInput = UITextField (frame: CGRectMake(10, y, CGRectGetWidth(self.view.frame) - rightMargin, 40))
-        ageInput.tag = 2
-        ageInput.delegate = self
-        ageInput.backgroundColor = UIColor.lightGrayColor()
-        self.view.addSubview(ageInput)
+        newProfileView = UIView.loadFromNibNamed("NewProfileView") as NewProfileView
+        self.view = newProfileView
+        newProfileView.ageInput.delegate = self
+        newProfileView.nameInput.delegate = self
         
         pickerView = UIView.loadFromNibNamed("AgePickerView") as AgePickerView
         pickerView.pickerView?.delegate = self
         pickerView.doneButton?.target = self
         pickerView.doneButton?.action = "done:"
-        ageInput.inputView = pickerView
+        newProfileView.ageInput.inputView = pickerView
         
-        y += CGRectGetHeight(ageInput.frame) + yMargin
-        
-        // Speichern Button
-        var saveButtonFrame: CGRect = CGRectMake(yMargin, y, CGRectGetWidth(self.view.frame) / 2, 40)
-        var saveButton = UiUtil.createButton("Speichern", myFrame: saveButtonFrame, action: Selector ("saveProfile:"), sender: self)
-        self.view.addSubview(saveButton)
+        newProfileView.segmentedControlSex.addTarget(self, action: "valueChanged:", forControlEvents: UIControlEvents.ValueChanged)
+        newProfileView.pictureButton.addTarget(self, action: "capture:", forControlEvents: UIControlEvents.TouchUpInside)
+        newProfileView.cameraButton.addTarget(self, action: "captureNew:", forControlEvents: UIControlEvents.TouchUpInside)
+        newProfileView.saveProfile.action = "saveProfile:"
+        newProfileView.dismiss.action = "dismiss:"
+
+        elements = []
+        for index in 1...16 {
+            elements!.append(String(index))
+        }
     }
     
     override func prefersStatusBarHidden() -> Bool {
@@ -164,10 +84,14 @@ class NewProfileViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     func done(sender: UIButton) {
-        ageInput.resignFirstResponder()
+        newProfileView.ageInput.resignFirstResponder()
         var selectedRow = pickerView.pickerView?.selectedRowInComponent(0)
         var selectedValue = elements![selectedRow!]
-        ageInput.text = selectedValue
+        newProfileView.ageInput.text = selectedValue
+    }
+    
+    func dismiss(sender: UIBarButtonItem) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func saveProfile(sender: UIButton) {
@@ -176,11 +100,11 @@ class NewProfileViewController: UIViewController, UIImagePickerControllerDelegat
         var person: Person = SwiftCoreDataHelper.insertManagedObject(NSStringFromClass(Person), managedObjectConect: moc) as Person
         
         person.identifier = "\(NSDate())"
-        person.firstName = nameInput.text
-        person.age = ageInput.text
-        person.gender = String(segmentedControlSex.selectedSegmentIndex)
+        person.firstName = newProfileView.nameInput.text
+        person.age = newProfileView.ageInput.text
+        person.gender = String(newProfileView.segmentedControlSex.selectedSegmentIndex)
         
-        let personImageData: NSData = UIImagePNGRepresentation(pictureImageView.image)
+        let personImageData: NSData = UIImagePNGRepresentation(newProfileView.pictureImageView.image)
         
         person.personImage = personImageData
         
@@ -193,7 +117,7 @@ class NewProfileViewController: UIViewController, UIImagePickerControllerDelegat
     func imagePickerController(picker: UIImagePickerController!, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]!) {
         println("Show the captured image")
         self.dismissViewControllerAnimated(true, completion: nil)
-        pictureImageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        newProfileView.pictureImageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {

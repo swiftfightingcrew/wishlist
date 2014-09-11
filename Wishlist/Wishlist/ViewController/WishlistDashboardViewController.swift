@@ -11,18 +11,17 @@ import CoreData
 
 class WishlistDashboardViewController: UITableViewController {
     
-    var wishlistDashboardView:WishlistDashboardView!
+    var wishlistDashboardView: WishlistDashboardView!
     var wishlistArray: NSMutableArray = NSMutableArray()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         wishlistDashboardView = UIView.loadFromNibNamed("WishlistDashboardView") as WishlistDashboardView
+        self.view = wishlistDashboardView
         
         self.tableView = wishlistDashboardView.tableView
         wishlistDashboardView.tableView.delegate = self
-        
-        self.view = wishlistDashboardView
         
         wishlistDashboardView.newButton.addTarget(self, action: "newButtonTapped:", forControlEvents: UIControlEvents.TouchUpInside)
     }
