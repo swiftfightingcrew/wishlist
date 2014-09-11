@@ -19,6 +19,9 @@ class WishlistDashboardViewController: UITableViewController {
         
         wishlistDashboardView = UIView.loadFromNibNamed("WishlistDashboardView") as WishlistDashboardView
         
+        self.tableView = wishlistDashboardView.tableView
+        wishlistDashboardView.tableView.delegate = self
+        
         self.view = wishlistDashboardView
         
         wishlistDashboardView.newButton.addTarget(self, action: "newButtonTapped:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -56,7 +59,7 @@ class WishlistDashboardViewController: UITableViewController {
             
             wishlistArray.addObject(wishlistDict)
         }
-        self.tableView?.reloadData()
+        wishlistDashboardView.tableView.reloadData()
     }
     
     // MARK: - Table View Data Source
@@ -93,7 +96,7 @@ class WishlistDashboardViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let wishlistDict:NSDictionary = wishlistArray.objectAtIndex(indexPath.row) as NSDictionary
         
-        self.presentViewController(WishlistDashboardViewController(), animated: true, completion: nil)
+        // self.presentViewController(WishlistDashboardViewController(), animated: true, completion: nil)
     }
     
 }
