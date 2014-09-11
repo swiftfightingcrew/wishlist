@@ -27,15 +27,15 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q4w-sa-xRg">
-                    <rect key="frame" x="66" y="101" width="189" height="102"/>
-                </imageView>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="41O-hw-x1C">
                     <rect key="frame" x="8" y="8" width="77" height="30"/>
                     <state key="normal" title="Speichern">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Geschenk_dummy" translatesAutoresizingMaskIntoConstraints="NO" id="Q4w-sa-xRg">
+                    <rect key="frame" x="95" y="100" width="131" height="114"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <nil key="simulatedStatusBarMetrics"/>
@@ -49,4 +49,7 @@
             </connections>
         </view>
     </objects>
+    <resources>
+        <image name="Geschenk_dummy" width="450" height="466"/>
+    </resources>
 </document>
