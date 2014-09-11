@@ -12,6 +12,7 @@ class WishlistDashboardView: UIView {
     @IBOutlet var welcomeLabel: UILabel!
     @IBOutlet var newButton: UIButton!
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var dismiss: UIBarButtonItem!
     
     override func layoutSubviews() {
         welcomeLabel.font = UIFont(name: "Chalkduster", size: 17)

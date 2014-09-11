@@ -94,7 +94,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40
+        return 0
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -105,7 +105,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let personDict:NSDictionary = personArray.objectAtIndex(indexPath.row) as NSDictionary
         
-        self.presentViewController(WishlistDashboardViewController(), animated: true, completion: nil)
+        //self.presentViewController(WishlistDashboardViewController(), animated: false, completion: nil)
+        self.showViewController(WishlistDashboardViewController(), sender: nil)
     }
 }
 

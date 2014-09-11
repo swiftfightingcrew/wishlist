@@ -26,10 +26,15 @@ class WishlistViewController: UIViewController, UITextViewDelegate, UITextFieldD
         wishlistView.saveButton.addTarget(self, action: "saveWishlist:", forControlEvents: UIControlEvents.TouchUpInside)
         
         // TODO: Target für SendButton (speichern & versenden)
-        //wishlistView.sendButton.addTarget(self, action: "sendWishlist:", forControlEvents: UIControlEvents.TouchUpInside)
+        wishlistView.sendButton.addTarget(self, action: "sendWishlist:", forControlEvents: UIControlEvents.TouchUpInside)
         
         
         iTunesService.delegate = self
+    }
+    
+    override func prefersStatusBarHidden() -> Bool {
+        // Versteckt die Statusbar
+        return true
     }
     
     func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
@@ -82,5 +87,9 @@ class WishlistViewController: UIViewController, UITextViewDelegate, UITextFieldD
         self.dismissViewControllerAnimated(true, completion: nil)
         
         println("Wishlist saved !!!")
+    }
+    
+    func sendWishlist(sender: UIButton) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 }

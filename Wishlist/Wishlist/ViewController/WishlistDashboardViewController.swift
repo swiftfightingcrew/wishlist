@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class WishlistDashboardViewController: UITableViewController {
+class WishlistDashboardViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var wishlistDashboardView: WishlistDashboardView!
     var wishlistArray: NSMutableArray = NSMutableArray()
@@ -20,11 +20,11 @@ class WishlistDashboardViewController: UITableViewController {
         wishlistDashboardView = UIView.loadFromNibNamed("WishlistDashboardView") as WishlistDashboardView
         self.view = wishlistDashboardView
         
-        self.tableView = wishlistDashboardView.tableView
         wishlistDashboardView.tableView.delegate = self
         wishlistDashboardView.tableView.dataSource = self
         
         wishlistDashboardView.newButton.addTarget(self, action: "newButtonTapped:", forControlEvents: UIControlEvents.TouchUpInside)
+        wishlistDashboardView.dismiss.action = "dismiss:"
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -32,8 +32,17 @@ class WishlistDashboardViewController: UITableViewController {
         loadData()
     }
     
+    override func prefersStatusBarHidden() -> Bool {
+        // Versteckt die Statusbar
+        return true
+    }
+    
     func newButtonTapped(sender: UIButton) {
         self.presentViewController(WishlistViewController(), animated: true, completion: nil)
+    }
+    
+    func dismiss(sender: UIBarButtonItem) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func loadData() {
@@ -63,11 +72,11 @@ class WishlistDashboardViewController: UITableViewController {
     }
     
     // MARK: - Table View Data Source
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return wishlistArray.count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell:UITableViewCell? = tableView.dequeueReusableCellWithIdentifier("Cell") as? UITableViewCell
         if cell == nil {
             cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
@@ -84,16 +93,20 @@ class WishlistDashboardViewController: UITableViewController {
         return cell!
     }
     
-    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 0
     }
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 50
     }
     
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Deine Wunschzettel"
+    }
+    
     //MARK: - Table View Delegate
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let wishlistDict:NSDictionary = wishlistArray.objectAtIndex(indexPath.row) as NSDictionary
         
         // self.presentViewController(WishlistDashboardViewController(), animated: true, completion: nil)

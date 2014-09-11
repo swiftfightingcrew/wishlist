@@ -11,13 +11,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bearbeite deine Wunschzettel oder erstelle einen Neuen" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T17-C3-MDw">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="86"/>
+                    <rect key="frame" x="0.0" y="36" width="320" height="86"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fj9-ED-bH7">
-                    <rect key="frame" x="91" y="114" width="138" height="30"/>
+                    <rect key="frame" x="91" y="140" width="138" height="30"/>
                     <state key="normal" title="Neuer Wunschzettel">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -26,11 +26,19 @@
                     <rect key="frame" x="0.0" y="210" width="320" height="358"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lHZ-Cw-0Tg">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <items>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="lIk-G9-LC4"/>
+                        <barButtonItem title="Abbrechen" id="C8i-Jg-oVB"/>
+                    </items>
+                </toolbar>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="dismiss" destination="C8i-Jg-oVB" id="YQ4-On-t7s"/>
                 <outlet property="newButton" destination="fj9-ED-bH7" id="Nre-jb-e1h"/>
                 <outlet property="tableView" destination="EXO-PG-5AQ" id="eBN-km-9m0"/>
                 <outlet property="welcomeLabel" destination="T17-C3-MDw" id="rN0-sD-vGn"/>
