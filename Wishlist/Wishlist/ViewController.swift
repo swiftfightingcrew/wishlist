@@ -7,43 +7,29 @@
 //
 
 import UIKit
+import CoreData
 
-class ViewController: UIViewController {
-    
-    var welcomeLabel: UILabel!
-    var infoLabel: UILabel!
-    var chooseButton: UIButton!
-    var newButton: UIButton!
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    var personArray: NSMutableArray = NSMutableArray()
+    var dashboardView: DashboardView!
     
     // MARK: - Meine Methoden
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Welcome-Text
-        welcomeLabel = UILabel (frame: CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 40))
-        welcomeLabel.text = "Willkommen"
-        welcomeLabel.font = UIFont(name: "Chalkduster", size: 16)
-        welcomeLabel.backgroundColor = UIColor.clearColor()
-        welcomeLabel.textAlignment = .Center
-        self.view.addSubview(welcomeLabel)
+        dashboardView = UIView.loadFromNibNamed("DashboardView") as DashboardView
+        self.view = dashboardView
         
-        // Info Text
-        var infoLabelFrame = CGRectMake(0, CGRectGetMaxY(welcomeLabel.frame), CGRectGetWidth(self.view.frame), 120)
-        infoLabel  = UiUtil.createLabel("wähle deinen Charakter aus oder erstelle einen neuen!", myFrame: infoLabelFrame)
-        infoLabel.numberOfLines = 0
-        self.view.addSubview(infoLabel)
+        dashboardView.tableView.delegate = self
+        dashboardView.tableView.dataSource = self
         
-        // Choose Button
-        var chooseButtonFrame: CGRect = CGRectMake(40, CGRectGetMaxY(infoLabel.frame) + 20, CGRectGetWidth(self.view.frame) - 80, 40)
-        // TODO: addTarget
-        chooseButton = UiUtil.createButton("Wähle deinen Charakter", myFrame: chooseButtonFrame, action: Selector("chooseCharacter:"), sender: self)
-        self.view.addSubview(chooseButton)
+        dashboardView.newButton.addTarget(self, action: "newButtonTapped:", forControlEvents: UIControlEvents.TouchUpInside)
+    }
     
-        // New Button
-        var newButtonFrame: CGRect = CGRectMake(40, CGRectGetMaxY(chooseButton.frame) + 20, CGRectGetWidth(self.view.frame) - 80, 40)
-        newButton = UiUtil.createButton("Neuer Charakter", myFrame: newButtonFrame, action: Selector ("newButtonTapped:"), sender: self)
-        self.view.addSubview(newButton)
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        loadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,11 +40,6 @@ class ViewController: UIViewController {
     override func prefersStatusBarHidden() -> Bool {
         // Versteckt die Statusbar
         return true
-    }
-
-    override func viewWillLayoutSubviews() {
-        // Landscape/Portrait Dimensionen neu zeichnen
-        welcomeLabel.frame = CGRectMake(CGRectGetMinX(welcomeLabel.frame), CGRectGetMinY(welcomeLabel.frame), CGRectGetWidth(self.view.frame), CGRectGetHeight(welcomeLabel.frame))
     }
     
     // MARK: - Actions
@@ -72,16 +53,66 @@ class ViewController: UIViewController {
         })
     }
     
-    func chooseCharacter(sender: UIButton!) {
-        let personTableViewController = PersonTableViewController()
+    func loadData() {
+        personArray.removeAllObjects()
         
-        UIView.transitionWithView(self.view, duration: 0.5, options: UIViewAnimationOptions.TransitionCurlUp, animations: { () -> Void in
-            self.view.addSubview(personTableViewController.view)
-            }, completion: {(finished: Bool) -> () in
-                self.presentViewController(personTableViewController, animated: false, completion: nil)
-        })
-
+        let moc: NSManagedObjectContext = SwiftCoreDataHelper.managedObjectContext()
+        
+        let results:Array = SwiftCoreDataHelper.fetchEntities(NSStringFromClass(Person), withPredicate: nil, managedObjectContext: moc)
+        
+        for person in results {
+            let singlePerson:Person = person as Person
+            
+            let personDict:NSDictionary = ["identifier":singlePerson.identifier, "firstName":singlePerson.firstName, "age":singlePerson.age, "gender":singlePerson.gender, "personImage":singlePerson.personImage]
+            
+            personArray.addObject(personDict)
+        }
+        
+        dashboardView.tableView.reloadData()
     }
     
+    // MARK: - Table View Data Source
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return personArray.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var cell:UITableViewCell? = tableView.dequeueReusableCellWithIdentifier("Cell") as? UITableViewCell
+        if cell == nil {
+            cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
+        }
+        
+        let personDict:NSDictionary = personArray.objectAtIndex(indexPath.row) as NSDictionary
+        
+        cell?.textLabel?.text = personDict["firstName"] as? String
+        cell?.detailTextLabel?.text = personDict["age"] as? String
+        
+        let imageData:NSData = personDict["personImage"] as NSData
+        cell?.imageView?.image = UIImage(data: imageData)
+        
+        return cell!
+    }
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 50
+    }
+    
+    //MARK: - Table View Delegate
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let personDict:NSDictionary = personArray.objectAtIndex(indexPath.row) as NSDictionary
+        
+        self.presentViewController(WishlistDashboardViewController(), animated: true, completion: nil)
+    }
+}
+
+//MARK: - Extensions
+extension UIView {
+    class func loadFromNibNamed(nibNamed: String, bundle : NSBundle = NSBundle.mainBundle()) -> UIView! {
+        return UINib(nibName: nibNamed, bundle: bundle).instantiateWithOwner(nil, options: nil)[0] as? UIView
+    }
 }
 

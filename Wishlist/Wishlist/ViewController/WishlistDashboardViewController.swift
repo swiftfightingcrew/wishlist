@@ -22,6 +22,7 @@ class WishlistDashboardViewController: UITableViewController {
         
         self.tableView = wishlistDashboardView.tableView
         wishlistDashboardView.tableView.delegate = self
+        wishlistDashboardView.tableView.dataSource = self
         
         wishlistDashboardView.newButton.addTarget(self, action: "newButtonTapped:", forControlEvents: UIControlEvents.TouchUpInside)
     }
