@@ -15,6 +15,7 @@ class WishlistViewController: UIViewController, UITextViewDelegate, UITextFieldD
     var wishlistView:WishlistView!
     var wishText = ""
     var iTunesService:ITunesService = ITunesService()
+    var personID: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,7 +79,8 @@ class WishlistViewController: UIViewController, UITextViewDelegate, UITextFieldD
         wishlist.id = "\(NSDate())"
         wishlist.letter = wishlistView.textView.text
         wishlist.title = wishlistView.titleText.text
-        wishlist.personId = "123"
+        wishlist.personId = personID!
+        println(personID)
         if (wishlistView.imageView.image != nil) {
             wishlist.productImage = UIImagePNGRepresentation(wishlistView.imageView.image)
         }

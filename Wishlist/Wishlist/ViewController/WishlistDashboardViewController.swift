@@ -13,6 +13,7 @@ class WishlistDashboardViewController: UIViewController, UITableViewDelegate, UI
     
     var wishlistDashboardView: WishlistDashboardView!
     var wishlistArray: NSMutableArray = NSMutableArray()
+    var personID: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +39,9 @@ class WishlistDashboardViewController: UIViewController, UITableViewDelegate, UI
     }
     
     func newButtonTapped(sender: UIButton) {
-        self.presentViewController(WishlistViewController(), animated: true, completion: nil)
+        let wishlistViewController: WishlistViewController = WishlistViewController()
+        wishlistViewController.personID = personID
+        self.presentViewController(wishlistViewController, animated: true, completion: nil)
     }
     
     func dismiss(sender: UIBarButtonItem) {
@@ -49,8 +52,9 @@ class WishlistDashboardViewController: UIViewController, UITableViewDelegate, UI
         wishlistArray.removeAllObjects()
         
         let moc: NSManagedObjectContext = SwiftCoreDataHelper.managedObjectContext()
-        
-        let results:Array = SwiftCoreDataHelper.fetchEntities(NSStringFromClass(Wishlist), withPredicate: nil, managedObjectContext: moc)
+        println(personID)
+        let string = personID!
+        let results:Array = SwiftCoreDataHelper.fetchEntities(NSStringFromClass(Wishlist), withPredicate: NSPredicate(format: "personId == '\(string)'"), managedObjectContext: moc)
         
     
         
