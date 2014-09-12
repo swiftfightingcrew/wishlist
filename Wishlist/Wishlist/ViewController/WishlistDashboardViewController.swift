@@ -56,16 +56,15 @@ class WishlistDashboardViewController: UIViewController, UITableViewDelegate, UI
         let string = personID!
         let results:Array = SwiftCoreDataHelper.fetchEntities(NSStringFromClass(Wishlist), withPredicate: NSPredicate(format: "personId == '\(string)'"), managedObjectContext: moc)
         
-    
-        
         for wishlist in results {
             let singleWishlist:Wishlist = wishlist as Wishlist
             
-            println(singleWishlist.id)
-            println(singleWishlist.personId)
-             println(singleWishlist.title)
-            println(singleWishlist.letter)
-            
+            println("------------------------")
+            println("Titel: \(singleWishlist.title)")
+            println("Letter: \(singleWishlist.letter)")
+            println("PersonID: \(singleWishlist.personId)")
+            println("ObjectID: \(singleWishlist.objectID.URIRepresentation().absoluteString)")
+            println("------------------------")
             
             
             let wishlistDict:NSDictionary = ["id":singleWishlist.id, "personId":singleWishlist.personId, "title":singleWishlist.title, "letter":singleWishlist.letter, "productImage":singleWishlist.productImage]
@@ -113,7 +112,11 @@ class WishlistDashboardViewController: UIViewController, UITableViewDelegate, UI
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let wishlistDict:NSDictionary = wishlistArray.objectAtIndex(indexPath.row) as NSDictionary
         
-        // self.presentViewController(WishlistDashboardViewController(), animated: true, completion: nil)
+        let wishlistViewController: WishlistViewController = WishlistViewController()
+        wishlistViewController.savedWishlistDict = wishlistDict
+        wishlistViewController.personID = personID
+        
+        self.presentViewController(wishlistViewController, animated: true, completion: nil)
     }
     
 }

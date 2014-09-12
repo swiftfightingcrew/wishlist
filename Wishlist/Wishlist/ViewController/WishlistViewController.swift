@@ -16,6 +16,7 @@ class WishlistViewController: UIViewController, UITextViewDelegate, UITextFieldD
     var wishText = ""
     var iTunesService:ITunesService = ITunesService()
     var personID: String?
+    var savedWishlistDict: NSDictionary?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +32,14 @@ class WishlistViewController: UIViewController, UITextViewDelegate, UITextFieldD
         
         
         iTunesService.delegate = self
+        
+        if var dict = savedWishlistDict {
+            println(savedWishlistDict)
+            
+            wishlistView.titleText.text = dict["title"] as String
+            wishlistView.imageView.image = UIImage(data: (dict["productImage"] as NSData))
+            wishlistView.textView.text = dict["letter"] as String
+        }
     }
     
     override func prefersStatusBarHidden() -> Bool {
@@ -74,13 +83,20 @@ class WishlistViewController: UIViewController, UITextViewDelegate, UITextFieldD
         
         let moc: NSManagedObjectContext = SwiftCoreDataHelper.managedObjectContext()
         
-        var wishlist: Wishlist = SwiftCoreDataHelper.insertManagedObject(NSStringFromClass(Wishlist), managedObjectConect: moc) as Wishlist
+        var wishlist: Wishlist
         
-        wishlist.id = "\(NSDate())"
+        if var dict = savedWishlistDict {
+            let string = personID!
+            let results:NSArray = SwiftCoreDataHelper.fetchEntities(NSStringFromClass(Wishlist), withPredicate: NSPredicate(format: "personId == '\(string)'"), managedObjectContext: moc)
+            wishlist = results.lastObject as Wishlist
+        } else {
+            wishlist = SwiftCoreDataHelper.insertManagedObject(NSStringFromClass(Wishlist), managedObjectConect: moc) as Wishlist
+        }
+        
+        wishlist.id = wishlist.objectID.URIRepresentation().absoluteString!
         wishlist.letter = wishlistView.textView.text
         wishlist.title = wishlistView.titleText.text
         wishlist.personId = personID!
-        println(personID)
         if (wishlistView.imageView.image != nil) {
             wishlist.productImage = UIImagePNGRepresentation(wishlistView.imageView.image)
         }
