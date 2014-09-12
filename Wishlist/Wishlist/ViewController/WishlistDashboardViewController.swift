@@ -52,9 +52,8 @@ class WishlistDashboardViewController: UIViewController, UITableViewDelegate, UI
         wishlistArray.removeAllObjects()
         
         let moc: NSManagedObjectContext = SwiftCoreDataHelper.managedObjectContext()
-        println(personID)
-        let string = personID!
-        let results:Array = SwiftCoreDataHelper.fetchEntities(NSStringFromClass(Wishlist), withPredicate: NSPredicate(format: "personId == '\(string)'"), managedObjectContext: moc)
+        let personIdString = personID!
+        let results:Array = SwiftCoreDataHelper.fetchEntities(NSStringFromClass(Wishlist), withPredicate: NSPredicate(format: "personId == '\(personIdString)'"), managedObjectContext: moc)
         
         for wishlist in results {
             let singleWishlist:Wishlist = wishlist as Wishlist

@@ -15,5 +15,8 @@ class WishlistView: UIView {
     @IBOutlet var titleText: UITextField!
     @IBOutlet var saveButton: UIButton!
     @IBOutlet var sendButton: UIButton!
+    @IBOutlet weak var nextArrowButton: UIButton!
+    @IBOutlet weak var previousArrowButton: UIButton!
+    @IBOutlet weak var greetingLabel: UILabel!
     
 }

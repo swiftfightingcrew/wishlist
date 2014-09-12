@@ -15,8 +15,8 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" keyboardDismissMode="onDrag" text="Was wünscht du dir?" translatesAutoresizingMaskIntoConstraints="NO" id="IXd-Nv-Tdf">
-                    <rect key="frame" x="8" y="228" width="304" height="291"/>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="IXd-Nv-Tdf">
+                    <rect key="frame" x="8" y="254" width="304" height="265"/>
                     <color key="backgroundColor" red="0.62738245370312495" green="0.90244199453808205" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -36,12 +36,33 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Geschenk_dummy" translatesAutoresizingMaskIntoConstraints="NO" id="Q4w-sa-xRg">
                     <rect key="frame" x="95" y="100" width="131" height="114"/>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cSb-TJ-T5N">
+                    <rect key="frame" x="41" y="178" width="30" height="30"/>
+                    <state key="normal" image="arrow-left">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sdx-DI-z6K">
+                    <rect key="frame" x="247" y="178" width="30" height="30"/>
+                    <state key="normal" image="arrow-right">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Was wünscht du dir?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jd1-Gn-Zfp">
+                    <rect key="frame" x="8" y="225" width="249" height="21"/>
+                    <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="14"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="greetingLabel" destination="jd1-Gn-Zfp" id="syy-a5-Rz6"/>
                 <outlet property="imageView" destination="Q4w-sa-xRg" id="811-su-5O8"/>
+                <outlet property="nextArrowButton" destination="Sdx-DI-z6K" id="ykV-Eb-tSR"/>
+                <outlet property="previousArrowButton" destination="cSb-TJ-T5N" id="EM5-Sq-XA7"/>
                 <outlet property="saveButton" destination="41O-hw-x1C" id="0ok-I3-BoN"/>
                 <outlet property="sendButton" destination="ukq-On-x2g" id="UlG-q7-vP6"/>
                 <outlet property="textView" destination="IXd-Nv-Tdf" id="cUx-3v-nvy"/>
@@ -51,5 +72,7 @@
     </objects>
     <resources>
         <image name="Geschenk_dummy" width="450" height="466"/>
+        <image name="arrow-left" width="30" height="30"/>
+        <image name="arrow-right" width="30" height="30"/>
     </resources>
 </document>
