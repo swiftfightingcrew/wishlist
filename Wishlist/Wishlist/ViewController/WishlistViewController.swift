@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 SwiftFighters. All rights reserved.
 //
 
-import Foundation
 import UIKit
 import CoreData
 
@@ -34,7 +33,7 @@ class WishlistViewController: UIViewController, UITextViewDelegate, UITextFieldD
         
         // TODO: Target für SendButton (speichern & versenden)
         wishlistView.sendButton.addTarget(self, action: "sendWishlist:", forControlEvents: UIControlEvents.TouchUpInside)
-        
+        wishlistView.counterLabel.hidden = true
         
         iTunesService.delegate = self
         
@@ -63,10 +62,10 @@ class WishlistViewController: UIViewController, UITextViewDelegate, UITextFieldD
         }
         
         wishText = wishText + text
-        
-        if countElements(wishText) > 5 {
+        var countElement = countElements(wishText)
+        if  countElement > 5 {
             iTunesService.searchItunesFor(wishText)
-        }
+            }
         
         return true
     }
@@ -77,6 +76,11 @@ class WishlistViewController: UIViewController, UITextViewDelegate, UITextFieldD
         if results.count > 0 {
             self.results = results
             showPresentsAtIndex()
+            wishlistView.counterLabel.hidden = false
+            wishlistView.counterLabel.text = "\(results.count)"
+        } else {
+            wishlistView.counterLabel.hidden = true
+            wishlistView.counterLabel.text = ""
         }
     }
     
@@ -126,10 +130,8 @@ class WishlistViewController: UIViewController, UITextViewDelegate, UITextFieldD
     }
     
     func nextPressed(sender: UIButton) {
-        ++index
-        
         if var array = results {
-            if index > array.count {
+            if ++index > array.count {
                 index = array.count
             }
         }
@@ -138,8 +140,7 @@ class WishlistViewController: UIViewController, UITextViewDelegate, UITextFieldD
     }
     
     func previousPressed(sender: UIButton) {
-        --index
-        if index < 0 {
+        if --index < 0 {
             index = 0
         }
         showPresentsAtIndex()
@@ -147,13 +148,13 @@ class WishlistViewController: UIViewController, UITextViewDelegate, UITextFieldD
     
     func setGreetingLabel() {
         let moc: NSManagedObjectContext = SwiftCoreDataHelper.managedObjectContext()
-        let string = personID!
-        println(string)
-        let results:NSArray = SwiftCoreDataHelper.fetchEntities(NSStringFromClass(Person), withPredicate: NSPredicate(format: "identifier == '\(string)'"), managedObjectContext: moc)
+        println(personID!)
+        let results:NSArray = SwiftCoreDataHelper.fetchEntities(NSStringFromClass(Person), withPredicate: NSPredicate(format: "identifier == '\(personID!)'"), managedObjectContext: moc)
         println(results)
         if results.count > 0 {
             var person: Person = results.lastObject as Person
-            wishlistView.greetingLabel.text = "Was wünscht du dir \(person.firstName)"
+            println(person.identifier)
+            wishlistView.greetingLabel.text = "Was wünscht du dir \(person.firstName)?"
         }
     }
 }

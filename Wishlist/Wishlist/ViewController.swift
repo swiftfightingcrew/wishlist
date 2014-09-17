@@ -62,8 +62,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         for person in results {
             let singlePerson:Person = person as Person
-            
-            let personDict:NSDictionary = ["identifier":singlePerson.objectID, "firstName":singlePerson.firstName, "age":singlePerson.age, "gender":singlePerson.gender, "personImage":singlePerson.personImage]
+            let personDict:NSDictionary = ["identifier":singlePerson.identifier, "firstName":singlePerson.firstName, "age":singlePerson.age, "gender":singlePerson.gender, "personImage":singlePerson.personImage]
             
             personArray.addObject(personDict)
         }
@@ -105,11 +104,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let personDict:NSDictionary = personArray.objectAtIndex(indexPath.row) as NSDictionary
         
-        let personID: NSManagedObjectID = personDict["identifier"] as NSManagedObjectID
-        let personIDString = personID.URIRepresentation().absoluteString
+        let personID: String = personDict["identifier"] as String
         
         let wishlistDashboardViewController: WishlistDashboardViewController = WishlistDashboardViewController()
-        wishlistDashboardViewController.personID = personIDString
+        wishlistDashboardViewController.personID = personID
         
         self.presentViewController(wishlistDashboardViewController, animated: false, completion: nil)
     }

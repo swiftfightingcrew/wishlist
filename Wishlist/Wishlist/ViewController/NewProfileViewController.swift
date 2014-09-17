@@ -5,8 +5,6 @@
 //  Created by Henning David on 22.08.14.
 //  Copyright (c) 2014 SwiftFighters. All rights reserved.
 //
-
-import Foundation
 import UIKit
 import CoreData
 
@@ -99,7 +97,9 @@ class NewProfileViewController: UIViewController, UIImagePickerControllerDelegat
         
         var person: Person = SwiftCoreDataHelper.insertManagedObject(NSStringFromClass(Person), managedObjectConect: moc) as Person
         
-        person.identifier = "\(NSDate())"
+        let results:Array  =   SwiftCoreDataHelper.fetchEntities(NSStringFromClass(Person), withPredicate: nil, managedObjectContext: moc)
+        
+        person.identifier = "\(results.count + 1)"
         person.firstName = newProfileView.nameInput.text
         person.age = newProfileView.ageInput.text
         person.gender = String(newProfileView.segmentedControlSex.selectedSegmentIndex)

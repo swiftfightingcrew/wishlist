@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 SwiftFighters. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class DashboardView: UIView {

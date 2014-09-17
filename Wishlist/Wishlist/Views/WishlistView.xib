@@ -54,11 +54,17 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Rf-Lz-IE8">
+                    <rect key="frame" x="229" y="107" width="23" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="counterLabel" destination="4Rf-Lz-IE8" id="W1N-1P-XaB"/>
                 <outlet property="greetingLabel" destination="jd1-Gn-Zfp" id="syy-a5-Rz6"/>
                 <outlet property="imageView" destination="Q4w-sa-xRg" id="811-su-5O8"/>
                 <outlet property="nextArrowButton" destination="Sdx-DI-z6K" id="ykV-Eb-tSR"/>
