@@ -258,6 +258,7 @@
 				TargetAttributes = {
 					C3C7FCBD1990F67800590B4E = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = SDVY9MAT28;
 					};
 					C3C7FCCF1990F67800590B4E = {
 						CreatedOnToolsVersion = 6.0;

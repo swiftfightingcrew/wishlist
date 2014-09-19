@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class WishlistViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate, ITunesServiceDelegate {
+class WishlistViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate, ITunesServiceDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
     
     var wishlistView:WishlistView!
     var wishText = ""
@@ -28,12 +28,18 @@ class WishlistViewController: UIViewController, UITextViewDelegate, UITextFieldD
         
         wishlistView.textView.delegate = self
         wishlistView.saveButton.addTarget(self, action: "saveWishlist:", forControlEvents: UIControlEvents.TouchUpInside)
-        wishlistView.nextArrowButton.addTarget(self, action: "nextPressed:", forControlEvents: UIControlEvents.TouchUpInside)
-        wishlistView.previousArrowButton.addTarget(self, action: "previousPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+        
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSizeMake(90, 90)
+        layout.scrollDirection = UICollectionViewScrollDirection.Horizontal
+        wishlistView.itemCollectionView.collectionViewLayout = layout
+        wishlistView.itemCollectionView.delegate = self
+        wishlistView.itemCollectionView.dataSource = self
+        wishlistView.itemCollectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
+        wishlistView.itemCollectionView.backgroundColor = UIColor.clearColor()
         
         // TODO: Target für SendButton (speichern & versenden)
         wishlistView.sendButton.addTarget(self, action: "sendWishlist:", forControlEvents: UIControlEvents.TouchUpInside)
-        wishlistView.counterLabel.hidden = true
         
         iTunesService.delegate = self
         
@@ -76,11 +82,7 @@ class WishlistViewController: UIViewController, UITextViewDelegate, UITextFieldD
         if results.count > 0 {
             self.results = results
             showPresentsAtIndex()
-            wishlistView.counterLabel.hidden = false
-            wishlistView.counterLabel.text = "\(results.count)"
-        } else {
-            wishlistView.counterLabel.hidden = true
-            wishlistView.counterLabel.text = ""
+            wishlistView.itemCollectionView.reloadData()
         }
     }
     
@@ -123,7 +125,7 @@ class WishlistViewController: UIViewController, UITextViewDelegate, UITextFieldD
             
             var url:NSURL = NSURL.URLWithString(resultDict["artworkUrl60"] as String)
             var data:NSData = NSData.dataWithContentsOfURL(url, options: nil, error: nil)
-            wishlistView.imageView.image = UIImage(data: data)
+            //wishlistView.imageView.image = UIImage(data: data)
         } else {
             
         }
@@ -157,4 +159,46 @@ class WishlistViewController: UIViewController, UITextViewDelegate, UITextFieldD
             wishlistView.greetingLabel.text = "Was wünscht du dir \(person.firstName)?"
         }
     }
+    
+    //MARK - UICollectionViewDataSource
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell: UICollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as UICollectionViewCell
+        var imageView: UIImageView = UIImageView(frame: cell.frame)
+        
+//        for view in self.view.subviews as [UIView] {
+//            if view.isKindOfClass(UIImageView) {
+//                view.removeFromSuperview()
+//            }
+//        }
+        
+        cell.addSubview(imageView)
+        
+        if var array = self.results {
+            println(indexPath.row)
+            println(self.results?.count)
+            var resultDict: NSDictionary = array.objectAtIndex(indexPath.row) as NSDictionary
+            
+            var url:NSURL = NSURL.URLWithString(resultDict["artworkUrl60"] as String)
+            var data:NSData = NSData.dataWithContentsOfURL(url, options: nil, error: nil)
+            imageView.image = UIImage(data: data)
+        } else {
+            imageView.image = UIImage(named: "Geschenk_dummy")
+            println(indexPath.row)
+        }
+        
+        return cell
+    }
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if var array = results {
+            return array.count
+        }
+        return 1
+    }
+    
+    //MARK - UICollectionViewDelegate
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
+    }
+    
 }
