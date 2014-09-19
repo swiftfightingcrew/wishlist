@@ -71,7 +71,7 @@ class WishlistViewController: UIViewController, UITextViewDelegate, UITextFieldD
         var countElement = countElements(wishText)
         if  countElement > 5 {
             iTunesService.searchItunesFor(wishText)
-            }
+        }
         
         return true
     }
@@ -81,7 +81,6 @@ class WishlistViewController: UIViewController, UITextViewDelegate, UITextFieldD
         
         if results.count > 0 {
             self.results = results
-            showPresentsAtIndex()
             wishlistView.itemCollectionView.reloadData()
         }
     }
@@ -119,35 +118,6 @@ class WishlistViewController: UIViewController, UITextViewDelegate, UITextFieldD
     }
     
     // MARK - Actions
-    func showPresentsAtIndex() {
-        if var array = self.results {
-            var resultDict: NSDictionary = array.objectAtIndex(index) as NSDictionary
-            
-            var url:NSURL = NSURL.URLWithString(resultDict["artworkUrl60"] as String)
-            var data:NSData = NSData.dataWithContentsOfURL(url, options: nil, error: nil)
-            //wishlistView.imageView.image = UIImage(data: data)
-        } else {
-            
-        }
-    }
-    
-    func nextPressed(sender: UIButton) {
-        if var array = results {
-            if ++index > array.count {
-                index = array.count
-            }
-        }
-        
-        showPresentsAtIndex()
-    }
-    
-    func previousPressed(sender: UIButton) {
-        if --index < 0 {
-            index = 0
-        }
-        showPresentsAtIndex()
-    }
-    
     func setGreetingLabel() {
         let moc: NSManagedObjectContext = SwiftCoreDataHelper.managedObjectContext()
         println(personID!)
@@ -163,13 +133,10 @@ class WishlistViewController: UIViewController, UITextViewDelegate, UITextFieldD
     //MARK - UICollectionViewDataSource
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell: UICollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as UICollectionViewCell
-        var imageView: UIImageView = UIImageView(frame: cell.frame)
+        var imageView: UIImageView = UIImageView(frame: CGRectMake(0, 15.5, 90, 90))
         
-//        for view in self.view.subviews as [UIView] {
-//            if view.isKindOfClass(UIImageView) {
-//                view.removeFromSuperview()
-//            }
-//        }
+        println("imageView: \(imageView)")
+        println("cell: \(cell)")
         
         cell.addSubview(imageView)
         
@@ -193,12 +160,12 @@ class WishlistViewController: UIViewController, UITextViewDelegate, UITextFieldD
         if var array = results {
             return array.count
         }
-        return 1
+        return 20
     }
     
     //MARK - UICollectionViewDelegate
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        
+        println("Item selected - index: \(indexPath.row)")
     }
     
 }
