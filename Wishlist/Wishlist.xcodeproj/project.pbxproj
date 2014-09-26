@@ -121,6 +121,15 @@
 			name = UtilityClasses;
 			sourceTree = "<group>";
 		};
+		C355755719D54B91005E6674 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0AAC07EE19C08F7700DF4A16 /* Wishlist.swift */,
+				C364C01519B37A890056BF4F /* Person.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		C364C01919B37F080056BF4F /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -167,6 +176,7 @@
 		C3C7FCC01990F67800590B4E /* Wishlist */ = {
 			isa = PBXGroup;
 			children = (
+				C355755719D54B91005E6674 /* Model */,
 				C364C01919B37F080056BF4F /* Helper */,
 				0A757DFB19A92B280053EEAC /* Services */,
 				0AC7A0F219A7C04300FC4CA2 /* UtilityClasses */,
@@ -176,8 +186,6 @@
 				C3C7FCC71990F67800590B4E /* Main.storyboard */,
 				C3C7FCCA1990F67800590B4E /* Images.xcassets */,
 				C364C01119B378370056BF4F /* Wishlist.xcdatamodeld */,
-				0AAC07EE19C08F7700DF4A16 /* Wishlist.swift */,
-				C364C01519B37A890056BF4F /* Person.swift */,
 				C3C7FCC11990F67800590B4E /* Supporting Files */,
 				C364C01419B37A890056BF4F /* Wishlist-Bridging-Header.h */,
 			);

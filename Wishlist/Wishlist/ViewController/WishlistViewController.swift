@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class WishlistViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate, ITunesServiceDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
+class WishlistViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate, ITunesServiceDelegate, UICollectionViewDataSource, UICollectionViewDelegate, NSXMLParserDelegate {
     
     var wishlistView:WishlistView!
     var wishText = ""
@@ -18,7 +18,10 @@ class WishlistViewController: UIViewController, UITextViewDelegate, UITextFieldD
     var name: String?
     var savedWishlistDict: NSDictionary?
     var results: NSArray?
+    var imageResults: [String] = Array()
     var index: Int = 0
+    var isInItem: Bool = false
+    var isLargeImage: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +55,18 @@ class WishlistViewController: UIViewController, UITextViewDelegate, UITextFieldD
         }
         
         setGreetingLabel()
+        
+        // Amazon URL Request
+        let url = NSURL(string: "http://172.21.24.112:8080/AmazonRestWebservice/resources/search?keyword=Barbie")
+        let task = NSURLSession.sharedSession().dataTaskWithURL(url) {(data, response, error) in
+            var xmlParser = NSXMLParser(data: data)
+            xmlParser.delegate = self
+            xmlParser.parse()
+            
+            println("\(self.imageResults)")
+            self.wishlistView.itemCollectionView.reloadData()
+        }
+        task.resume()
     }
     
     override func prefersStatusBarHidden() -> Bool {
@@ -141,27 +156,28 @@ class WishlistViewController: UIViewController, UITextViewDelegate, UITextFieldD
         
         cell.addSubview(imageView)
         
-        if var array = self.results {
-            println(indexPath.row)
-            println(self.results?.count)
-            var resultDict: NSDictionary = array.objectAtIndex(indexPath.row) as NSDictionary
-            
-            var url:NSURL = NSURL.URLWithString(resultDict["artworkUrl60"] as String)
-            var data:NSData = NSData.dataWithContentsOfURL(url, options: nil, error: nil)
-            imageView.image = UIImage(data: data)
-        } else {
-            imageView.image = UIImage(named: "Geschenk_dummy")
-            println(indexPath.row)
-        }
+        var url:NSURL = NSURL(string: imageResults[indexPath.row])
+        var data:NSData = NSData.dataWithContentsOfURL(url, options: nil, error: nil)
+        imageView.image = UIImage(data: data)
+        
+//        if var array = self.results {
+//            println(indexPath.row)
+//            println(self.results?.count)
+//            var resultDict: NSDictionary = array.objectAtIndex(indexPath.row) as NSDictionary
+//            
+//            var url:NSURL = NSURL.URLWithString(resultDict["artworkUrl60"] as String)
+//            var data:NSData = NSData.dataWithContentsOfURL(url, options: nil, error: nil)
+//            imageView.image = UIImage(data: data)
+//        } else {
+//            imageView.image = UIImage(named: "Geschenk_dummy")
+//            println(indexPath.row)
+//        }
         
         return cell
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if var array = results {
-            return array.count
-        }
-        return 1
+        return imageResults.count
     }
     
     //MARK - UICollectionViewDelegate
@@ -172,4 +188,26 @@ class WishlistViewController: UIViewController, UITextViewDelegate, UITextFieldD
         activeCell.backgroundColor = activeCell.backgroundColor == activeColor ? UIColor.clearColor() : activeColor
     }
     
+    //MARK - XMLParserDelegate
+    func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String!, qualifiedName qName: String!, attributes attributeDict: [NSObject : AnyObject]!) {
+        if (elementName == "MediumImage" && !isInItem) {
+            isInItem = true
+            isLargeImage = true
+            //var value = attributeDict["LargeImage"] as String
+        }
+    }
+    
+    func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String!, qualifiedName qName: String!) {
+        if elementName == "Item" {
+            isInItem = false
+        } else if elementName == "URL" {
+            isLargeImage = false
+        }
+    }
+    
+    func parser(parser: NSXMLParser, foundCharacters string: String) {
+        if isLargeImage {
+            imageResults.append(string)
+        }
+    }
 }
