@@ -103,6 +103,7 @@ class WishlistViewController: UIViewController, UITextViewDelegate, UITextFieldD
         wishlist.letter = wishlistView.textView.text
         wishlist.title = wishlistView.titleText.text
         wishlist.personId = personID!
+        
         if (wishlistView.imageView.image != nil) {
             wishlist.productImage = UIImagePNGRepresentation(wishlistView.imageView.image)
         }
@@ -160,12 +161,15 @@ class WishlistViewController: UIViewController, UITextViewDelegate, UITextFieldD
         if var array = results {
             return array.count
         }
-        return 20
+        return 1
     }
     
     //MARK - UICollectionViewDelegate
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         println("Item selected - index: \(indexPath.row)")
+        let activeCell = wishlistView.itemCollectionView.cellForItemAtIndexPath(indexPath)!
+        let activeColor = UIColor.lightGrayColor()
+        activeCell.backgroundColor = activeCell.backgroundColor == activeColor ? UIColor.clearColor() : activeColor
     }
     
 }
