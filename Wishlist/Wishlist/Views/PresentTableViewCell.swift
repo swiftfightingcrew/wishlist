@@ -9,6 +9,11 @@
 import UIKit
 
 class PresentTableViewCell: UITableViewCell {
+    
+    
+    @IBAction func search(sender: UIButton) {
+        self.contentView.frame = CGRect(x: 0, y: 0, width: 320, height: 154)
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()

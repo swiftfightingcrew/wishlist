@@ -9,43 +9,54 @@
 import UIKit
 
 class PresentTableViewManager: UITableViewController {
+    
+    var cellHeight:CGFloat = 0.0
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.frame = CGRect(x: 0, y: 0, width: 320, height: 345)
+        
+        
+        var nipName=UINib(nibName: "PresentTableViewCell", bundle:nil)
+        self.tableView.registerNib(nipName, forCellReuseIdentifier: "Cell")
+    }
+    
+    func suchen() {
+        
     }
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 10
+        return 5
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> PresentTableViewCell {
-//        var cell:PresentTableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell") as PresentTableViewCell
+     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> PresentTableViewCell {
+        var cell = tableView.dequeueReusableCellWithIdentifier("Cell") as PresentTableViewCell
 //        if cell == nil {
-            var cell = NibLoader.loadFromNibNamed("PresentTableViewCell") as PresentTableViewCell
+//            cell = NibLoader.loadFromNibNamed("PresentTableViewCell") as? PresentTableViewCell
 //        }
-        
+//        
+        cellHeight = cell.contentView.frame.height
+        println(cellHeight)
         return cell
     }
 
-    /*
     // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView!, canEditRowAtIndexPath indexPath: NSIndexPath!) -> Bool {
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return NO if you do not want the specified item to be editable.
         return true
     }
-    */
 
-    /*
     // Override to support editing the table view.
-    override func tableView(tableView: UITableView!, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath!) {
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
@@ -53,7 +64,6 @@ class PresentTableViewManager: UITableViewController {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
 
     /*
     // Override to support rearranging the table view.
@@ -70,7 +80,7 @@ class PresentTableViewManager: UITableViewController {
     }
     */
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 77
     }
 

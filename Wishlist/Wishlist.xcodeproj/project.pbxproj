@@ -77,7 +77,7 @@
 		C3C7FCBE1990F67800590B4E /* Wishlist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wishlist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3C7FCC21990F67800590B4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C3C7FCC31990F67800590B4E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C3C7FCC51990F67800590B4E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = Wishlist/ViewController.swift; sourceTree = "<group>"; };
+		C3C7FCC51990F67800590B4E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C3C7FCC81990F67800590B4E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C3C7FCCA1990F67800590B4E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C3C7FCD01990F67800590B4E /* WishlistTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WishlistTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,7 +106,6 @@
 		0A220E2F19A7473400943794 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				C3C7FCC51990F67800590B4E /* ViewController.swift */,
 				0A220E2D19A7470E00943794 /* NewProfileViewController.swift */,
 				C3C1F10819B9A6FA00D82D3D /* WishlistDashboardViewController.swift */,
 				C3C1F10E19B9B52F00D82D3D /* WishlistViewController.swift */,
@@ -163,6 +162,7 @@
 				C33B349A19C2310000AB0CB8 /* NewProfileView.xib */,
 				C33B349C19C2343300AB0CB8 /* NewProfileView.swift */,
 				C33B349E19C23D2E00AB0CB8 /* DashboardView.xib */,
+				C3C7FCC51990F67800590B4E /* ViewController.swift */,
 				C33B34A019C23D4000AB0CB8 /* DashboardView.swift */,
 				C366CC3819E67DCA00D0F862 /* PresentTableViewCell.swift */,
 				C366CC3919E67DCA00D0F862 /* PresentTableViewCell.xib */,
