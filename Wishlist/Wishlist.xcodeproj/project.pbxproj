@@ -20,6 +20,11 @@
 		C364C01819B37EF60056BF4F /* SwiftCoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C364C01719B37EF60056BF4F /* SwiftCoreDataHelper.swift */; };
 		C364C01C19B390B70056BF4F /* AgePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C364C01B19B390B70056BF4F /* AgePickerView.xib */; };
 		C364C01E19B394510056BF4F /* AgePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C364C01D19B394510056BF4F /* AgePickerView.swift */; };
+		C366CC3A19E67DCA00D0F862 /* PresentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C366CC3819E67DCA00D0F862 /* PresentTableViewCell.swift */; };
+		C366CC3B19E67DCA00D0F862 /* PresentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C366CC3919E67DCA00D0F862 /* PresentTableViewCell.xib */; };
+		C366CC3D19E67F9000D0F862 /* PresentCollectionViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C366CC3C19E67F9000D0F862 /* PresentCollectionViewManager.swift */; };
+		C366CC3F19E689E100D0F862 /* PresentTableViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C366CC3E19E689E100D0F862 /* PresentTableViewManager.swift */; };
+		C366CC4119E68E3A00D0F862 /* NibLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C366CC4019E68E3A00D0F862 /* NibLoader.swift */; };
 		C3C1F10519B9A29900D82D3D /* WishlistDashboardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3C1F10419B9A29900D82D3D /* WishlistDashboardView.xib */; };
 		C3C1F10719B9A55D00D82D3D /* WishlistDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C1F10619B9A55D00D82D3D /* WishlistDashboardView.swift */; };
 		C3C1F10919B9A6FA00D82D3D /* WishlistDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C1F10819B9A6FA00D82D3D /* WishlistDashboardViewController.swift */; };
@@ -58,6 +63,11 @@
 		C364C01719B37EF60056BF4F /* SwiftCoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftCoreDataHelper.swift; path = ../SwiftCoreDataHelper.swift; sourceTree = "<group>"; };
 		C364C01B19B390B70056BF4F /* AgePickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AgePickerView.xib; path = Views/AgePickerView.xib; sourceTree = "<group>"; };
 		C364C01D19B394510056BF4F /* AgePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AgePickerView.swift; path = Views/AgePickerView.swift; sourceTree = "<group>"; };
+		C366CC3819E67DCA00D0F862 /* PresentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PresentTableViewCell.swift; path = Views/PresentTableViewCell.swift; sourceTree = "<group>"; };
+		C366CC3919E67DCA00D0F862 /* PresentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PresentTableViewCell.xib; path = Views/PresentTableViewCell.xib; sourceTree = "<group>"; };
+		C366CC3C19E67F9000D0F862 /* PresentCollectionViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PresentCollectionViewManager.swift; path = Wishlist/ViewController/PresentCollectionViewManager.swift; sourceTree = "<group>"; };
+		C366CC3E19E689E100D0F862 /* PresentTableViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PresentTableViewManager.swift; path = Wishlist/ViewController/PresentTableViewManager.swift; sourceTree = "<group>"; };
+		C366CC4019E68E3A00D0F862 /* NibLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NibLoader.swift; path = Helper/NibLoader.swift; sourceTree = "<group>"; };
 		C3C1F10419B9A29900D82D3D /* WishlistDashboardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WishlistDashboardView.xib; path = Views/WishlistDashboardView.xib; sourceTree = "<group>"; };
 		C3C1F10619B9A55D00D82D3D /* WishlistDashboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WishlistDashboardView.swift; path = Views/WishlistDashboardView.swift; sourceTree = "<group>"; };
 		C3C1F10819B9A6FA00D82D3D /* WishlistDashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WishlistDashboardViewController.swift; path = Wishlist/ViewController/WishlistDashboardViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +110,8 @@
 				0A220E2D19A7470E00943794 /* NewProfileViewController.swift */,
 				C3C1F10819B9A6FA00D82D3D /* WishlistDashboardViewController.swift */,
 				C3C1F10E19B9B52F00D82D3D /* WishlistViewController.swift */,
+				C366CC3C19E67F9000D0F862 /* PresentCollectionViewManager.swift */,
+				C366CC3E19E689E100D0F862 /* PresentTableViewManager.swift */,
 			);
 			name = ViewController;
 			path = ..;
@@ -134,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				C364C01719B37EF60056BF4F /* SwiftCoreDataHelper.swift */,
+				C366CC4019E68E3A00D0F862 /* NibLoader.swift */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -151,6 +164,8 @@
 				C33B349C19C2343300AB0CB8 /* NewProfileView.swift */,
 				C33B349E19C23D2E00AB0CB8 /* DashboardView.xib */,
 				C33B34A019C23D4000AB0CB8 /* DashboardView.swift */,
+				C366CC3819E67DCA00D0F862 /* PresentTableViewCell.swift */,
+				C366CC3919E67DCA00D0F862 /* PresentTableViewCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -303,6 +318,7 @@
 				C33B349F19C23D2E00AB0CB8 /* DashboardView.xib in Resources */,
 				C364C01C19B390B70056BF4F /* AgePickerView.xib in Resources */,
 				C3C7FCC91990F67800590B4E /* Main.storyboard in Resources */,
+				C366CC3B19E67DCA00D0F862 /* PresentTableViewCell.xib in Resources */,
 				C3C7FCCB1990F67800590B4E /* Images.xcassets in Resources */,
 				C33B349B19C2310000AB0CB8 /* NewProfileView.xib in Resources */,
 			);
@@ -326,16 +342,20 @@
 				0AAC07EF19C08F7700DF4A16 /* Wishlist.swift in Sources */,
 				C364C01319B378370056BF4F /* Wishlist.xcdatamodeld in Sources */,
 				C3C1F10F19B9B52F00D82D3D /* WishlistViewController.swift in Sources */,
+				C366CC3F19E689E100D0F862 /* PresentTableViewManager.swift in Sources */,
 				C33B349D19C2343300AB0CB8 /* NewProfileView.swift in Sources */,
 				C3C7FCC61990F67800590B4E /* ViewController.swift in Sources */,
 				C3C7FCC41990F67800590B4E /* AppDelegate.swift in Sources */,
 				0A220E2E19A7470E00943794 /* NewProfileViewController.swift in Sources */,
 				C364C01E19B394510056BF4F /* AgePickerView.swift in Sources */,
+				C366CC4119E68E3A00D0F862 /* NibLoader.swift in Sources */,
 				C33B34A119C23D4000AB0CB8 /* DashboardView.swift in Sources */,
 				C3C1F10919B9A6FA00D82D3D /* WishlistDashboardViewController.swift in Sources */,
 				C364C01819B37EF60056BF4F /* SwiftCoreDataHelper.swift in Sources */,
 				C364C01619B37A890056BF4F /* Person.swift in Sources */,
 				0A757DFD19A92B540053EEAC /* ITunesService.swift in Sources */,
+				C366CC3D19E67F9000D0F862 /* PresentCollectionViewManager.swift in Sources */,
+				C366CC3A19E67DCA00D0F862 /* PresentTableViewCell.swift in Sources */,
 				C3C1F10719B9A55D00D82D3D /* WishlistDashboardView.swift in Sources */,
 				0AC7A0F419A7C08800FC4CA2 /* UiUtil.swift in Sources */,
 			);

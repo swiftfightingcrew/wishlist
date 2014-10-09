@@ -18,7 +18,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dashboardView = UIView.loadFromNibNamed("DashboardView") as DashboardView
+        dashboardView = NibLoader.loadFromNibNamed("DashboardView") as DashboardView
         self.view = dashboardView
         
         dashboardView.tableView.delegate = self
@@ -110,13 +110,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         wishlistDashboardViewController.personID = personID
         
         self.presentViewController(wishlistDashboardViewController, animated: false, completion: nil)
-    }
-}
-
-//MARK: - Extensions
-extension UIView {
-    class func loadFromNibNamed(nibNamed: String, bundle : NSBundle = NSBundle.mainBundle()) -> UIView! {
-        return UINib(nibName: nibNamed, bundle: bundle).instantiateWithOwner(nil, options: nil)[0] as? UIView
     }
 }
 

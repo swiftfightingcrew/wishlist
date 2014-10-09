@@ -18,12 +18,12 @@ class NewProfileViewController: UIViewController, UIImagePickerControllerDelegat
         self.view.backgroundColor = UIColor.whiteColor()
         self.modalTransitionStyle = UIModalTransitionStyle.PartialCurl
         
-        newProfileView = UIView.loadFromNibNamed("NewProfileView") as NewProfileView
+        newProfileView = NibLoader.loadFromNibNamed("NewProfileView") as NewProfileView
         self.view = newProfileView
         newProfileView.ageInput.delegate = self
         newProfileView.nameInput.delegate = self
         
-        pickerView = UIView.loadFromNibNamed("AgePickerView") as AgePickerView
+        pickerView = NibLoader.loadFromNibNamed("AgePickerView") as AgePickerView
         pickerView.pickerView?.delegate = self
         pickerView.doneButton?.target = self
         pickerView.doneButton?.action = "done:"

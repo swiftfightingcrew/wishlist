@@ -13,6 +13,7 @@ class WishlistView: UIView {
     @IBOutlet var saveButton: UIButton!
     @IBOutlet var sendButton: UIButton!
     @IBOutlet weak var greetingLabel: UILabel!
-    @IBOutlet var itemCollectionView: UICollectionView!
     var imageView: UIImageView! = UIImageView(image: UIImage(named: "Geschenk_dummy"))
+    @IBOutlet var presentTableViewController: UITableViewController!
+    @IBOutlet var containerView: UIView!
 }

@@ -18,7 +18,7 @@ class WishlistDashboardViewController: UIViewController, UITableViewDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        wishlistDashboardView = UIView.loadFromNibNamed("WishlistDashboardView") as WishlistDashboardView
+        wishlistDashboardView = NibLoader.loadFromNibNamed("WishlistDashboardView") as WishlistDashboardView
         self.view = wishlistDashboardView
         
         wishlistDashboardView.tableView.delegate = self
