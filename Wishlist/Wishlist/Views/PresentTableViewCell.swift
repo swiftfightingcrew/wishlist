@@ -12,7 +12,10 @@ class PresentTableViewCell: UITableViewCell {
     
     
     @IBAction func search(sender: UIButton) {
+sender.superview
         self.contentView.frame = CGRect(x: 0, y: 0, width: 320, height: 154)
+        self.contentView.backgroundColor = UIColor.grayColor()
+        self.reloadInputViews()
     }
 
     override func awakeFromNib() {

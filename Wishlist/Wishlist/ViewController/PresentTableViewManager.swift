@@ -43,7 +43,7 @@ class PresentTableViewManager: UITableViewController {
 //        if cell == nil {
 //            cell = NibLoader.loadFromNibNamed("PresentTableViewCell") as? PresentTableViewCell
 //        }
-//        
+        
         cellHeight = cell.contentView.frame.height
         println(cellHeight)
         return cell
@@ -81,7 +81,8 @@ class PresentTableViewManager: UITableViewController {
     */
     
      override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 77
+        return 78.0
     }
+    
 
 }
